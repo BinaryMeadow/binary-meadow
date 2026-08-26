@@ -375,7 +375,9 @@ export default async function AppPage({
                 {group === 'Mobile'
                   ? playLink
                     ? 'Available for Android on Google Play — scan the code or tap the badge.'
-                    : 'Available for Android. Store listings are on the way — grab the latest build below.'
+                    : app.downloads.length > 0
+                      ? 'Available for Android. Store listings are on the way — grab the latest build below.'
+                      : 'Coming to Android. The Google Play listing is not live yet — there is nothing to download just yet.'
                   : 'Available for macOS and Windows. Download the latest release below.'}
               </p>
               {app.pricing && (

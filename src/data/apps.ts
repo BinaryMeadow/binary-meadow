@@ -124,6 +124,13 @@ export interface FaqItem {
 }
 
 export interface AppPrivacy {
+  /**
+   * When this app's policy last changed, e.g. "26 August 2026". Per-app rather
+   * than a site-wide literal: policies change when an app ships a feature that
+   * moves data, so a shared date would either misdate a new policy or falsely
+   * claim the others had been revised.
+   */
+  updated: string;
   /** One-line summary of the app's data posture. */
   summary: string;
   /** Whether the app collects personal data or analytics off-device. */
@@ -273,6 +280,7 @@ export const apps: App[] = [
       { src: '/screenshots/jannah-builder/5-settings.jpg', alt: 'Jannah Builder settings screen' },
     ],
     privacy: {
+      updated: '25 June 2026',
       summary:
         'Jannah Builder is local-first. Your prayer logs and progress stay on your device and are never sent to us.',
       collectsPersonalData: false,
@@ -954,6 +962,7 @@ export const apps: App[] = [
       },
     ],
     privacy: {
+      updated: '25 June 2026',
       summary:
         'OPDSy reads files on your own device and connects only to the self-hosted servers you configure. It has no Binary Meadow account and no analytics, and optional cross-device sync is end-to-end encrypted inside your own Google Drive — so we never see your library, reading activity or credentials.',
       collectsPersonalData: false,
@@ -1107,6 +1116,7 @@ export const apps: App[] = [
       { src: '/screenshots/gridwatch/activity.png', alt: 'GridWatch activity heatmap' },
     ],
     privacy: {
+      updated: '25 June 2026',
       summary:
         'GridWatch reads your local GitHub Copilot CLI session data on your own machine. Nothing is sent to us; optional AI Insights runs only with a provider you configure.',
       collectsPersonalData: false,
@@ -1219,6 +1229,7 @@ export const apps: App[] = [
       { src: '/screenshots/spinely/8-settings.jpg', alt: 'Spinely settings screen with library stats and preferred language' },
     ],
     privacy: {
+      updated: '25 June 2026',
       summary:
         'Spinely is local-first. Your bookcases, books and spine photos stay on your device and are never sent to us.',
       collectsPersonalData: false,
@@ -1246,6 +1257,164 @@ export const apps: App[] = [
       ],
       childrenNote:
         'Spinely is a family-friendly app suitable for all ages. Because it is local-first and collects no personal data, it can be used safely by children as well as adults.',
+    },
+  },
+  {
+    slug: 'storyrunner',
+    name: 'StoryRunner',
+    tagline: 'Every run is a chapter.',
+    summary:
+      'A GPS running app that turns each run into an episode of an unfolding story, with a route generated to fit the distance you have time for.',
+    description:
+      'StoryRunner is a running app for people who find running boring.\n\nEach week brings a new episode: a short story, a quest, and a route generated to fit the distance and time you actually have. Narration is triggered by where you are, not by a stopwatch — reach the old signal box and the next scene plays, so the story and the ground move together.\n\nUnderneath it is a straightforward run tracker: route map, distance, pace, duration and steps. The story is the reason to go out; the tracking is what you keep afterwards.\n\nIt runs entirely on your device. There are no accounts, no analytics and no advertising, and your route history is never sent to us.',
+    category: 'Health & Fitness',
+    icon: '/apps/storyrunner.png',
+    platforms: ['android'],
+    accent: '#E8A33D',
+    downloads: [],
+    pricing: {
+      label: 'Free to install · Subscription unlocks campaigns',
+      detail:
+        'StoryRunner is in internal testing and is not yet on Google Play. When it launches, the app and its run tracking will be free; a subscription unlocks the ongoing story campaigns.',
+      free: true,
+    },
+    techStack: [
+      'Expo SDK 57',
+      'React Native',
+      'TypeScript',
+      'Expo Router',
+      'OpenStreetMap',
+    ],
+    highlights: [
+      {
+        title: 'A reason to go out',
+        description:
+          'A new episode each week, with a quest to finish rather than a number to beat. The story only advances when you run.',
+      },
+      {
+        title: 'Routes that fit your run',
+        description:
+          'Tell it how far you want to go and it builds a loop from where you are standing — no planning, no driving somewhere first.',
+      },
+      {
+        title: 'Narration tied to place',
+        description:
+          'Scenes are triggered by reaching a point on the route, not by elapsed time, so the story stays in step with the ground under your feet.',
+      },
+      {
+        title: 'Private by construction',
+        description:
+          'No account, no analytics, no ads. Your runs are stored on your phone and never sent to us — and privacy zones strip your home from anything you share.',
+      },
+    ],
+    features: [
+      {
+        title: 'Weekly story episodes',
+        description:
+          'Each episode is a self-contained quest with its own narration, objectives and payoff, delivered as content rather than shipped in an app update.',
+      },
+      {
+        title: 'Full run tracking',
+        description:
+          'Route map, distance, pace, duration and step count, recorded in the background with the screen locked and your phone in a pocket.',
+      },
+      {
+        title: 'Generated routes',
+        description:
+          'Loops built to a target distance from your current position, so a 5K is a 5K whether you are at home or away.',
+      },
+      {
+        title: 'Location-triggered audio',
+        description:
+          'Narration plays when you arrive somewhere, queued so scenes never overlap or talk over one another.',
+      },
+      {
+        title: 'Privacy zones',
+        description:
+          'Define an area around your home and every point inside it is removed from anything you share — not nudged to the edge, which would still point at your door.',
+      },
+      {
+        title: 'Works without signal',
+        description:
+          'Episodes and their audio are downloaded ahead of the run, so the story keeps going where the mobile signal does not.',
+      },
+    ],
+    screenshots: [],
+    faqs: [
+      {
+        question: 'Do I have to pay to use StoryRunner?',
+        answer:
+          'No. The app is free to install and the run tracking — route map, distance, pace, duration and steps — is free to use. A subscription unlocks the ongoing story campaigns.',
+      },
+      {
+        question: 'Does it work without a phone signal?',
+        answer:
+          'Yes. Episodes and their narration are downloaded before you set off, and GPS does not need a data connection, so a run in a signal blackspot works normally. Only the map imagery needs the internet.',
+      },
+      {
+        question: 'Does it keep tracking when my phone is locked?',
+        answer:
+          'Yes. StoryRunner records in the background so you can run with the phone in a pocket. Tracking only happens during a run you started yourself, and a notification is shown the whole time it is active.',
+      },
+      {
+        question: 'Where is my run data stored?',
+        answer:
+          'On your phone. There are no accounts and no server of ours that receives your runs, so your route history is not something we can see. Uninstalling the app deletes it.',
+      },
+      {
+        question: 'Can I stop it revealing where I live?',
+        answer:
+          'Yes. Privacy zones let you mark an area such as your home, and every recorded point inside it is removed from anything you share. Your distance and time still count the full run.',
+      },
+      {
+        question: 'Do I need a running watch?',
+        answer:
+          'No. StoryRunner uses your phone\u2019s GPS and step counter, so a phone and a pair of headphones is the whole kit.',
+      },
+    ],
+    privacy: {
+      updated: '26 August 2026',
+      summary:
+        'StoryRunner records your runs on your phone. There are no accounts, no servers of ours, no analytics and no advertising — your route data never leaves your device unless you deliberately share it.',
+      collectsPersonalData: false,
+      dataHandling: [
+        {
+          title: 'Location, including in the background',
+          description:
+            'Precise GPS location is recorded to draw your route, calculate distance and pace, and trigger story audio at points along the way. Background access exists so a run continues with the phone locked and in a pocket, which is how running is physically done. Location is only collected during a run you started yourself, a persistent notification is shown for the entire time tracking is active, and collection stops when you end the run. It is stored on your device and is not transmitted to us.',
+        },
+        {
+          title: 'Activity and run history',
+          description:
+            'Step count, run history, settings and quest progress are held in the app\u2019s private storage on your device. Uninstalling StoryRunner deletes all of it.',
+        },
+        {
+          title: 'No account required',
+          description:
+            'The app works without sign-in. We do not ask for your name, email or phone number, and we do not build a profile of you.',
+        },
+        {
+          title: 'No analytics or tracking',
+          description:
+            'StoryRunner does not embed advertising SDKs, analytics or crash-reporting services, and does not track your activity across other apps or websites.',
+        },
+        {
+          title: 'Privacy zones',
+          description:
+            'Because a GPS track is effectively a map of where you live, you can define privacy zones around places such as your home. When you share or export a run, every point inside a zone is removed entirely — not moved to the zone edge, which would leave the direction of travel pointing at your front door. Distance and time are still calculated from the full track, so you keep credit for the whole run.',
+        },
+        {
+          title: 'Map tiles are the one thing that reaches the internet',
+          description:
+            'To draw a map beneath your route the app downloads map imagery, which necessarily reveals your IP address and which part of the map is being displayed to the tile provider. They do not receive your recorded track, your identity, or any identifier we assign. If you would rather not make those requests, do not open the map view.',
+        },
+      ],
+      thirdParties: [
+        'OpenStreetMap — supplies the map imagery drawn beneath your route, under its own privacy policy. Map data is © OpenStreetMap contributors, licensed under the Open Database Licence.',
+        'Google Play — distributes the app and processes installs and subscription payments under its own privacy policy. We never receive or store your payment details.',
+      ],
+      childrenNote:
+        'StoryRunner is not directed at children and we do not knowingly collect data from children. Because the app holds no personal data on any server, we hold no children\u2019s data.',
     },
   },
 ];

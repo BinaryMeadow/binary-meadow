@@ -72,10 +72,14 @@ export function softwareApplicationSchema(app: App) {
     description: app.summary,
     url: `${company.url}/apps/${app.slug}/`,
     image: `${company.url}${app.icon}`,
-    screenshot: app.screenshots
-      .slice(0, 6)
-      .map((s) => `${company.url}${s.src.split('?')[0]}`),
-    applicationCategory: isMobile ? 'MobileApplication' : 'DesktopApplication',
+    // Omitted entirely rather than emitted empty for an app with no captures yet.
+    ...(app.screenshots.length > 0
+      ? {
+          screenshot: app.screenshots
+            .slice(0, 6)
+            .map((s) => `${company.url}${s.src.split('?')[0]}`),
+        }
+      : {}),    applicationCategory: isMobile ? 'MobileApplication' : 'DesktopApplication',
     applicationSubCategory: app.category,
     operatingSystem: app.platforms.map((p) => OS_MAP[p]).join(', '),
     featureList: app.features.map((f) => f.title),
@@ -89,8 +93,12 @@ export function softwareApplicationSchema(app: App) {
               '@type': 'Offer',
               price: '0',
               priceCurrency: 'GBP',
-              availability: 'https://schema.org/InStock',
-              ...(playListing ? { url: playListing.href } : {}),
+              ...(playListing
+                ? {
+                    availability: 'https://schema.org/InStock',
+                    url: playListing.href,
+                  }
+                : {}),
             },
           }
         : {

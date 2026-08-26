@@ -38,3 +38,34 @@
 .sm .playBadge {
   height: 50px;
 }
+
+/* Placeholder shown for an app that has no download links yet. Styled as an
+   inert chip so it never reads as a button the visitor failed to click. */
+.comingSoon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+  border: 1px dashed var(--line);
+  background: var(--bg-soft);
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: default;
+}
+
+.comingSoon::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--app-accent, var(--muted));
+  flex: none;
+}
+
+.sm .comingSoon {
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+}

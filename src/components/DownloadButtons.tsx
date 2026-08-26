@@ -23,6 +23,22 @@ export default function DownloadButtons({
   const badgeHeight = size === 'sm' ? 50 : 60;
   const badgeWidth = Math.round(badgeHeight * PLAY_BADGE_RATIO);
 
+  // An app with no links yet is unreleased, not broken. Say so, rather than
+  // rendering an empty row beneath a heading that promises a download.
+  //
+  // Deliberately *not* a greyed-out Play badge: Google's brand guidelines
+  // forbid altering the badge artwork, and showing the real one for an app you
+  // cannot install is a broken promise either way.
+  if (downloads.length === 0) {
+    return (
+      <div className={`${styles.group} ${size === 'sm' ? styles.sm : ''}`}>
+        <span className={styles.comingSoon} aria-disabled="true">
+          Coming soon to Google Play
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div className={`${styles.group} ${size === 'sm' ? styles.sm : ''}`}>
       {downloads.map((dl) => {

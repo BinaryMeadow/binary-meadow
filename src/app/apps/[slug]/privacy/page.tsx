@@ -41,7 +41,7 @@ export default async function AppPrivacyPage({
           ← {app.name}
         </Link>
         <h1 className={styles.title}>{app.name} Privacy Policy</h1>
-        <p className={styles.updated}>Last updated: 25 June 2026</p>
+        <p className={styles.updated}>Last updated: {app.privacy.updated}</p>
 
         <div className={styles.content}>
           <p className={styles.notice}>
