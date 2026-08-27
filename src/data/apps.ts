@@ -14,6 +14,12 @@ export interface AppFeature {
 export interface Screenshot {
   src: string;
   alt: string;
+  /**
+   * Promotes this capture into the six images published as structured data.
+   * Lets an app order its gallery for humans while still showing search
+   * engines the most representative screens. Ignored once six are marked.
+   */
+  featured?: boolean;
 }
 
 /** A segment of an attribution line; renders as a link when `href` is set. */
@@ -338,17 +344,17 @@ export const apps: App[] = [
     },
     techStack: ['Expo SDK 56', 'React Native', 'TypeScript', 'TanStack Query'],
     screenshots: [
-      { src: '/screenshots/opdsy/01-home.jpg', alt: 'OPDSy home screen with a continue reading card, favourites and the latest items from a connected server' },
-      { src: '/screenshots/opdsy/02-library.jpg', alt: 'OPDSy library screen listing folders grouped by each connected OPDS library' },
-      { src: '/screenshots/opdsy/03-comic-list.jpg', alt: 'OPDSy comics folder showing a grid of comic series cover art' },
+      { src: '/screenshots/opdsy/01-home.jpg', featured: true, alt: 'OPDSy home screen with a continue reading card, favourites and the latest items from a connected server' },
+      { src: '/screenshots/opdsy/02-library.jpg', featured: true, alt: 'OPDSy library screen listing folders grouped by each connected OPDS library' },
+      { src: '/screenshots/opdsy/03-comic-list.jpg', featured: true, alt: 'OPDSy comics folder showing a grid of comic series cover art' },
       { src: '/screenshots/opdsy/04-book-list.jpg', alt: 'OPDSy books folder showing a grid of ebook covers with titles and authors' },
-      { src: '/screenshots/opdsy/05-comic-reading.jpg', alt: 'OPDSy comic reader with the page controls open, showing reading direction, layout and fit options' },
+      { src: '/screenshots/opdsy/05-comic-reading.jpg', featured: true, alt: 'OPDSy comic reader with the page controls open, showing reading direction, layout and fit options' },
       { src: '/screenshots/opdsy/05-1-comic-reading-2.jpg', alt: 'OPDSy comic reader with the page thumbnail strip open for jumping between pages' },
-      { src: '/screenshots/opdsy/06-book-reading.jpg', alt: 'OPDSy ebook reader on a sepia theme with read-aloud speed, text size and theme controls open' },
+      { src: '/screenshots/opdsy/06-book-reading.jpg', featured: true, alt: 'OPDSy ebook reader on a sepia theme with read-aloud speed, text size and theme controls open' },
       { src: '/screenshots/opdsy/06-1-book-reading-2.jpg', alt: 'OPDSy ebook reader on a white theme, showing how the reading theme changes the page' },
       { src: '/screenshots/opdsy/06-2-book-reading-3.jpg', alt: 'OPDSy ebook reader with the contents panel open for jumping to a chapter or page number' },
       { src: '/screenshots/opdsy/06-3-highlight.jpg', alt: 'OPDSy text highlighting with five highlight colours and copy, share and note actions' },
-      { src: '/screenshots/opdsy/06-4-dictionary-word.jpg', alt: 'OPDSy offline dictionary lookup showing the definition of a tapped word while reading' },
+      { src: '/screenshots/opdsy/06-4-dictionary-word.jpg', featured: true, alt: 'OPDSy offline dictionary lookup showing the definition of a tapped word while reading' },
       { src: '/screenshots/opdsy/07-highlights-bookmarks.jpg', alt: 'OPDSy highlights and bookmarks screen with tabs for highlights, bookmarks and looked-up words' },
       { src: '/screenshots/opdsy/08-downloads.jpg', alt: 'OPDSy downloads screen listing books and folders saved for offline reading' },
       { src: '/screenshots/opdsy/09-settings.jpg', alt: 'OPDSy settings screen with libraries, sync, audio, dictionary, appearance and about' },

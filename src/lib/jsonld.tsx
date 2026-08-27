@@ -1,5 +1,5 @@
 import { company } from './site';
-import type { App } from '@/data/apps';
+import type { App, Screenshot } from '@/data/apps';
 
 /**
  * Renders a JSON-LD <script> tag. Safe for static export — the data is
@@ -59,6 +59,18 @@ const OS_MAP: Record<string, string> = {
   windows: 'Windows',
 };
 
+/**
+ * Picks the six screenshots published as structured data: any marked
+ * `featured` first, then the gallery order to make up the difference.
+ * Search engines get the most representative screens without forcing the
+ * on-page gallery to be reordered around them.
+ */
+function schemaScreenshots(screenshots: Screenshot[]) {
+  const featured = screenshots.filter((s) => s.featured);
+  const rest = screenshots.filter((s) => !s.featured);
+  return [...featured, ...rest].slice(0, 6);
+}
+
 export function softwareApplicationSchema(app: App) {
   const isMobile = app.platforms.some((p) => p === 'android' || p === 'ios');
   const playListing = app.downloads.find((d) =>
@@ -75,9 +87,9 @@ export function softwareApplicationSchema(app: App) {
     // Omitted entirely rather than emitted empty for an app with no captures yet.
     ...(app.screenshots.length > 0
       ? {
-          screenshot: app.screenshots
-            .slice(0, 6)
-            .map((s) => `${company.url}${s.src.split('?')[0]}`),
+          screenshot: schemaScreenshots(app.screenshots).map(
+            (s) => `${company.url}${s.src.split('?')[0]}`,
+          ),
         }
       : {}),    applicationCategory: isMobile ? 'MobileApplication' : 'DesktopApplication',
     applicationSubCategory: app.category,
