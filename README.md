@@ -47,7 +47,7 @@ src/
 public/
 ├── logo/                     # Full logo
 ├── apps/                     # App icons + logo mark
-└── screenshots/gridwatch/    # GridWatch product screenshots
+└── screenshots/<app>/         # Per-app product screenshots, numbered in display order
 ```
 
 ## Development
