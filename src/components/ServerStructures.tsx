@@ -2,7 +2,19 @@ import type {
   ServerStructures as ServerStructuresData,
   ServerTileShape,
 } from '@/data/apps';
+import ServerAnchor from './ServerAnchor';
 import styles from './ServerStructures.module.css';
+
+/**
+ * Fragment id for a server accordion, e.g. "Calibre-Web" → "server-calibre-web".
+ * Derived from the name so a new server is linkable without extra data.
+ */
+function serverId(name: string) {
+  return `server-${name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')}`;
+}
 
 const SHAPES: Record<
   ServerTileShape,
@@ -92,12 +104,14 @@ export default function ServerStructures({
         {data.servers.map((server, i) => {
           const wayInCount = server.tiles.filter((t) => t.wayIn).length;
           const wayInLabel = wayInCount > 1 ? 'A way in' : 'The way in';
+          const id = serverId(server.name);
           return (
-          <details key={server.name} className={styles.item} open={i === 0}>
+          <details key={server.name} id={id} className={styles.item} open={i === 0}>
             <summary className={styles.head}>
               <span className={styles.headText}>
                 <span className={styles.name}>{server.name}</span>
                 <span className={styles.summary}>{server.summary}</span>
+                <ServerAnchor id={id} name={server.name} />
               </span>
               <span className={styles.chevron} aria-hidden="true" />
             </summary>
