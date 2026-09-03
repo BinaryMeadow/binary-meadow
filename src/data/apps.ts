@@ -572,7 +572,7 @@ export const apps: App[] = [
         {
           feature: 'Reads both ebooks and comic archives',
           cells: [
-            { value: 'yes', note: 'EPUB, PDF, CBZ, CBR' },
+            { value: 'yes', note: 'EPUB, PDF, CBZ, CBT; CBR and CB7 not supported' },
             { value: 'yes', note: 'EPUB, PDF, CBZ, CBR' },
             { value: 'yes', note: 'CBZ and CBT listed; CBR not listed' },
             { value: 'yes', note: 'EPUB, PDF, CBZ, CBR' },
@@ -589,6 +589,28 @@ export const apps: App[] = [
             { value: 'yes' },
             { value: 'no', note: 'Comics and manga only' },
             { value: 'partial', note: 'Premium version only' },
+          ],
+        },
+        {
+          feature: 'Settings aimed at e-ink screens',
+          cells: [
+            { value: 'yes', note: 'E-reader screen: high contrast, animations off, volume keys' },
+            { value: 'partial', note: 'Volume-key paging and themes; no e-ink wording' },
+            { value: 'yes', note: 'Built for e-ink: refresh rate, waveform and anti-ghosting' },
+            { value: 'partial', note: 'Volume-key nav and an animation toggle; no e-ink wording' },
+            { value: 'partial', note: 'Flash on page change to cut ghosting; volume keys' },
+            { value: 'unknown', note: 'No e-ink wording on the site or listing' },
+          ],
+        },
+        {
+          feature: 'Interface translated into many languages',
+          cells: [
+            { value: 'yes', note: '50 locales in the app' },
+            { value: 'yes', note: '40 in the Play listing; the vendor site says 46' },
+            { value: 'yes', note: '61 locales in koreader-translations' },
+            { value: 'yes', note: '42 locales plus English' },
+            { value: 'yes', note: '69 locales, 3 of them complete on its own Weblate' },
+            { value: 'unknown', note: 'No count published' },
           ],
         },
         {
@@ -668,7 +690,7 @@ export const apps: App[] = [
         },
       ],
       note:
-        'Compiled in August 2026 from each app’s own website, Google Play listing, documentation or public source code — column headings link to the source we used. “Unconfirmed” means we could not verify it from one of those sources; it does not mean the feature is missing. Paid tiers change what an app can do, so rows are judged on the version named in the column. These are all good apps built by people who care; if anything here is out of date, tell us and we will correct it.',
+        'Compiled in August 2026 and updated in September 2026 from each app’s own website, Google Play listing, documentation or public source code — column headings link to the source we used. Language figures count locale files in the project’s own source, or the vendor’s own stated figure where there is no public source, so they include regional variants such as pt-BR and pt-PT and are not all counted the same way. “Unconfirmed” means we could not verify it from one of those sources; it does not mean the feature is missing. Paid tiers change what an app can do, so rows are judged on the version named in the column. These are all good apps built by people who care; if anything here is out of date, tell us and we will correct it.',
     },
     serverStructures: {
       lead:
