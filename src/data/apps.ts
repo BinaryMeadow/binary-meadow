@@ -357,15 +357,16 @@ export const apps: App[] = [
       { src: '/screenshots/opdsy/06-4-dictionary-word.jpg', featured: true, alt: 'OPDSy offline dictionary lookup showing the definition of a tapped word while reading' },
       { src: '/screenshots/opdsy/07-highlights-bookmarks.jpg', alt: 'OPDSy highlights and bookmarks screen with tabs for highlights, bookmarks and looked-up words' },
       { src: '/screenshots/opdsy/08-downloads.jpg', alt: 'OPDSy downloads screen listing books and folders saved for offline reading' },
-      { src: '/screenshots/opdsy/09-settings.jpg', alt: 'OPDSy settings screen with libraries, sync, audio, dictionary, appearance and about' },
+      { src: '/screenshots/opdsy/09-settings.jpg', alt: 'OPDSy settings screen with libraries, sync, downloads, audio, dictionary, appearance, e-reader, language and about' },
       { src: '/screenshots/opdsy/10-libraries.jpg', alt: 'OPDSy libraries screen listing connected OPDS servers that can be reordered, disabled or removed' },
       { src: '/screenshots/opdsy/10-1-edit-library.jpg', alt: 'OPDSy add library form with server type presets for Ubooquity, Komga, Kavita, Calibre-Web, BookOrbit, Grimmory and other OPDS servers' },
       { src: '/screenshots/opdsy/10-2-local-library.jpg', alt: 'OPDSy add local folder screen for reading files already on the device in place' },
       { src: '/screenshots/opdsy/11-audio.jpg', alt: 'OPDSy audio settings for read-aloud speed, pitch and offline or online voices' },
       { src: '/screenshots/opdsy/12-dictionary.jpg', alt: 'OPDSy dictionary settings with the offline English dictionary installed and looked-up words saved per book' },
       { src: '/screenshots/opdsy/13-sync.jpg', alt: 'OPDSy sync settings with toggles for reading progress, favourites, servers and encrypted server sign-ins' },
-      { src: '/screenshots/opdsy/14-appearance.jpg', alt: 'OPDSy appearance settings with high-contrast mode, animation, cover backdrop and accent colour options' },
-      { src: '/screenshots/opdsy/15-eink-mode.jpg', alt: 'OPDSy appearance settings with high-contrast e-ink mode turned on, showing the black-on-white theme' },
+      { src: '/screenshots/opdsy/14-appearance.jpg', alt: 'OPDSy appearance settings with cover backdrops, backdrop parallax, card size and accent colour options' },
+      { src: '/screenshots/opdsy/15-e-reader.jpg', alt: 'OPDSy e-reader settings for e-ink devices, with high-contrast mode, animations and volume key page turns' },
+      { src: '/screenshots/opdsy/16-e-reader-high-contrast.jpg', alt: 'OPDSy e-reader settings with high-contrast mode turned on, showing the black-on-white theme and the choice of which volume key turns the page forward' },
     ],
     tabletScreenshots: [
       { src: '/screenshots/opdsy/tablet/1-home.jpg', alt: 'OPDSy on a tablet — home screen with continue reading and favourites' },
@@ -491,7 +492,7 @@ export const apps: App[] = [
       {
         title: 'E-ink friendly',
         description:
-          'Independent toggles for a high-contrast black-on-white theme and for switching animations off, to avoid ghosting on slow-refresh screens such as Onyx Boox.',
+          'A dedicated E-reader settings screen: independent toggles for a high-contrast black-on-white theme and for switching animations off, to avoid ghosting on slow-refresh screens such as Onyx Boox, plus volume keys that turn the page on devices with physical page buttons.',
       },
       {
         title: 'Read offline, anywhere',
@@ -969,7 +970,7 @@ export const apps: App[] = [
       {
         question: 'Does OPDSy work on e-ink devices and tablets?',
         answer:
-          'Yes. There are independent toggles for a high-contrast black-on-white theme and for switching animations off, to avoid ghosting on slow-refresh screens such as Onyx Boox, and tablets get two-page spreads for both books and comics.',
+          'Yes. A dedicated E-reader settings screen gathers independent toggles for a high-contrast black-on-white theme and for switching animations off, to avoid ghosting on slow-refresh screens such as Onyx Boox, along with volume-key page turns for devices with physical page buttons. Tablets get two-page spreads for both books and comics.',
       },
     ],
     privacy: {
