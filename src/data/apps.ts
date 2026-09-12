@@ -327,13 +327,7 @@ export const apps: App[] = [
     icon: '/apps/task-monster.png',
     platforms: ['android'],
     accent: '#FF6B9D',
-    downloads: [
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.binarymeadow.taskmonster',
-        platform: 'android',
-      },
-    ],
+    downloads: [],
     techStack: ['React Native', 'Expo SDK 54', 'TypeScript', 'Expo Router', 'React Native Skia'],
     highlights: [
       {
