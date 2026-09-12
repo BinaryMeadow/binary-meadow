@@ -11,9 +11,9 @@ server runtime required.
 
 | App | Platform | Repository |
 | --- | --- | --- |
-| **Jannah Builder** | Android (mobile) | https://github.com/faesel/jannah-builder |
-| **OPDSy** | Android (mobile) | https://github.com/faesel/opdsy |
-| **GridWatch** | macOS & Windows (desktop) | https://github.com/faesel/gridwatch |
+| **Jannah Builder** | Android (mobile) | https://github.com/binarymeadow/jannah-builder |
+| **OPDSy** | Android (mobile) | https://github.com/binarymeadow/opdsy |
+| **GridWatch** | macOS & Windows (desktop) | https://github.com/binarymeadow/gridwatch |
 
 ## Tech stack
 

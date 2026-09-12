@@ -205,7 +205,7 @@ export const apps: App[] = [
     featureGraphic: '/apps/jannah-builder-feature.png',
     platforms: ['android'],
     accent: '#2d7a5f',
-    repository: 'https://github.com/faesel/jannah-builder',
+    repository: 'https://github.com/binarymeadow/jannah-builder',
     downloads: [
       {
         label: 'Google Play',
@@ -214,7 +214,7 @@ export const apps: App[] = [
       },
       {
         label: 'Download APK',
-        href: 'https://github.com/faesel/jannah-builder/releases',
+        href: 'https://github.com/binarymeadow/jannah-builder/releases',
         platform: 'android',
       },
     ],
@@ -1151,16 +1151,16 @@ export const apps: App[] = [
     icon: '/apps/gridwatch.png',
     platforms: ['macos', 'windows'],
     accent: '#00b8d4',
-    repository: 'https://github.com/faesel/gridwatch',
+    repository: 'https://github.com/binarymeadow/gridwatch',
     downloads: [
       {
         label: 'Download for macOS',
-        href: 'https://github.com/faesel/gridwatch/releases/latest',
+        href: 'https://github.com/binarymeadow/gridwatch/releases/latest',
         platform: 'macos',
       },
       {
         label: 'Download for Windows',
-        href: 'https://github.com/faesel/gridwatch/releases/latest',
+        href: 'https://github.com/binarymeadow/gridwatch/releases/latest',
         platform: 'windows',
       },
     ],
