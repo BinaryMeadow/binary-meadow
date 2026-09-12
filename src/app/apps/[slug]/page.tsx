@@ -254,14 +254,18 @@ export default async function AppPage({
           {app.tabletScreenshots && app.tabletScreenshots.length > 0 && (
             <>
               <h3 className={styles.shotSubhead}>On a tablet</h3>
-              <div className={styles.shotGrid}>
+              <div
+                className={`${styles.shotGrid} ${
+                  app.tabletPortrait ? styles.shotGridMobile : ''
+                }`}
+              >
                 {app.tabletScreenshots.map((s) => (
                   <figure key={s.src} className={styles.shot}>
                     <Image
                       src={s.src}
                       alt={s.alt}
-                      width={1280}
-                      height={800}
+                      width={s.width ?? 1280}
+                      height={s.height ?? 800}
                       className={styles.shotImg}
                     />
                   </figure>

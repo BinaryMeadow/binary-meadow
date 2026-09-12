@@ -20,6 +20,10 @@ export interface Screenshot {
    * engines the most representative screens. Ignored once six are marked.
    */
   featured?: boolean;
+  /** Intrinsic pixel width, used to render the correct aspect ratio. */
+  width?: number;
+  /** Intrinsic pixel height, used to render the correct aspect ratio. */
+  height?: number;
 }
 
 /** A segment of an attribution line; renders as a link when `href` is set. */
@@ -175,6 +179,8 @@ export interface App {
   screenshots: Screenshot[];
   /** Landscape tablet screenshots, shown in a separate section below the phone screenshots. */
   tabletScreenshots?: Screenshot[];
+  /** Render the tablet screenshots as portrait captures in a denser grid. */
+  tabletPortrait?: boolean;
   /** Optional attribution shown beneath the screenshots (e.g. third-party artwork). */
   screenshotsCredit?: CreditPart[];
   /** Accent colour pulled from each app's own identity. */
@@ -404,6 +410,13 @@ export const apps: App[] = [
       { src: '/screenshots/task-monster/3-feed.jpg', alt: 'Task Monster sending a finished task to the feeder' },
       { src: '/screenshots/task-monster/4-characters.jpg', alt: 'Task Monster character picker showing six monster species and accent colours' },
       { src: '/screenshots/task-monster/5-new-task.jpg', alt: 'Task Monster new task form with groups, due date and reminder' },
+    ],
+    tabletPortrait: true,
+    tabletScreenshots: [
+      { src: '/screenshots/task-monster/tablet/1-tasks.jpg', alt: 'Task Monster on a tablet: task list with colourful groups', width: 1152, height: 2048 },
+      { src: '/screenshots/task-monster/tablet/2-monster.jpg', alt: 'Task Monster on a tablet: monster screen with feed button and stats', width: 1152, height: 2048 },
+      { src: '/screenshots/task-monster/tablet/3-settings.jpg', alt: 'Task Monster on a tablet: settings screen', width: 1152, height: 2048 },
+      { src: '/screenshots/task-monster/tablet/4-new-task.jpg', alt: 'Task Monster on a tablet: new task form with groups, due date and reminder', width: 1152, height: 2048 },
     ],
     privacy: {
       updated: '12 September 2026',
