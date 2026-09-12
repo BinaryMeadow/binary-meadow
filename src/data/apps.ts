@@ -316,6 +316,137 @@ export const apps: App[] = [
     },
   },
   {
+    slug: 'task-monster',
+    name: 'Task Monster',
+    tagline: 'Feed your monster by finishing tasks.',
+    summary:
+      'A gamified to-do list where every task you finish feeds a pixel monster that grows, levels up and evolves alongside you.',
+    description:
+      'Task Monster turns your to-do list into a game. Every task you finish becomes food for your very own pixel monster, so getting things done actually feels rewarding.\n\nFinish a task and it drops into the feeder as a tasty bubble. Tap feed and watch your monster chomp it down, level up and slowly evolve. The more you get done, the happier and healthier it becomes.\n\nRaise one of six lively creatures, each with its own look and personality, give it a name and pick its accent colour. It all works offline with no account required, and your tasks never leave your device.',
+    category: 'Productivity',
+    icon: '/apps/task-monster.png',
+    platforms: ['android'],
+    accent: '#FF6B9D',
+    downloads: [
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.binarymeadow.taskmonster',
+        platform: 'android',
+      },
+    ],
+    techStack: ['React Native', 'Expo SDK 54', 'TypeScript', 'Expo Router', 'React Native Skia'],
+    highlights: [
+      {
+        title: 'Finishing tasks feeds your monster',
+        description:
+          'Every completed task drops into the feeder as a tasty bubble. Feed it to your monster to level up, and watch it grow happier and healthier the more you get done.',
+      },
+      {
+        title: 'Six creatures that come to life',
+        description:
+          'Raise one of six monster species, each with its own look and personality. They blink, wobble, chomp and evolve through levels as you stay consistent.',
+      },
+      {
+        title: 'Private & fully offline',
+        description:
+          'No account, no ads and no tracking of any kind. Your tasks stay on your device, with optional Google Drive backup only if you choose it.',
+      },
+    ],
+    features: [
+      {
+        title: 'Gamified to-do list',
+        description:
+          'Completing tasks feeds and grows your monster, so ticking things off is genuinely rewarding.',
+      },
+      {
+        title: 'Six monster species',
+        description:
+          'Raise Blip, Cyclo, Trio, Fuzz, Finn or Nib, each with its own character, and switch whenever you like.',
+      },
+      {
+        title: 'Living animations',
+        description:
+          'Your monster blinks, wobbles, chomps its food and even poops out the odd finished task to keep things playful.',
+      },
+      {
+        title: 'Evolving levels',
+        description:
+          'Keep feeding your monster to level it up and watch it evolve as your progress builds.',
+      },
+      {
+        title: 'Colourful task groups',
+        description:
+          'Organise work, home and everything else into tidy, colour-coded groups.',
+      },
+      {
+        title: 'Subtasks, due dates & reminders',
+        description:
+          'Break bigger tasks down, set a due date and time, and get a gentle reminder before anything is due.',
+      },
+      {
+        title: 'Swipe to feed',
+        description:
+          'Tick or swipe a task to send it to the feeder, with a quick undo if you change your mind.',
+      },
+      {
+        title: 'Health, happiness & XP',
+        description:
+          'Simple stats reflect how consistently you are getting things done.',
+      },
+      {
+        title: 'Make it yours',
+        description:
+          'Give your monster a name, choose from six accent colours, and switch sound effects and haptics on or off.',
+      },
+      {
+        title: 'Fully offline, no account',
+        description:
+          'Everything works without sign-in and stays on your device, with optional Google Drive backup and sync.',
+      },
+    ],
+    screenshots: [
+      { src: '/screenshots/task-monster/1-tasks.jpg', alt: 'Task Monster task list with colourful groups' },
+      { src: '/screenshots/task-monster/2-monster.jpg', alt: 'Task Monster monster screen with feed button and stats' },
+      { src: '/screenshots/task-monster/3-feed.jpg', alt: 'Task Monster sending a finished task to the feeder' },
+      { src: '/screenshots/task-monster/4-characters.jpg', alt: 'Task Monster character picker showing six monster species and accent colours' },
+      { src: '/screenshots/task-monster/5-new-task.jpg', alt: 'Task Monster new task form with groups, due date and reminder' },
+    ],
+    privacy: {
+      updated: '12 September 2026',
+      summary:
+        'Task Monster is local-first. Your tasks and your monster stay on your device and are never sent to us.',
+      collectsPersonalData: false,
+      dataHandling: [
+        {
+          title: 'Tasks & monster progress',
+          description:
+            'Your tasks, groups and your monster’s state are stored locally on your device. They are not transmitted to Binary Meadow or any third party.',
+        },
+        {
+          title: 'No account required',
+          description:
+            'The app works without sign-in. We do not ask for your name, email, phone number, or location, and we do not build a profile of you.',
+        },
+        {
+          title: 'Optional Google Drive backup',
+          description:
+            'If you choose to connect Google Drive, a backup of your tasks is stored in your own Drive account so you can sync across devices. This only happens when you connect it, and nothing is sent to us.',
+        },
+        {
+          title: 'No analytics or tracking',
+          description:
+            'Task Monster does not embed advertising SDKs or third-party analytics, and does not track your activity across other apps or websites.',
+        },
+      ],
+      thirdParties: [
+        'Google Play — distributes the app and processes installs under its own privacy policy.',
+        'Google Drive — stores your optional backup in your own account, only if you connect it, under Google’s privacy policy.',
+      ],
+      childrenNote:
+        'Task Monster is a family-friendly app suitable for all ages. Because it is local-first and collects no personal data, it can be used safely by children as well as adults.',
+    },
+  },
+  {
     slug: 'opdsy',
     name: 'OPDSy',
     tagline: 'Your files and your servers, one library.',
