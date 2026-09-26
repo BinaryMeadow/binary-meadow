@@ -76,6 +76,17 @@ python3 -m venv /tmp/qrvenv
 /tmp/qrvenv/bin/python scripts/generate-qr.py
 ```
 
+### Task Monster feature graphic
+
+The Task Monster hero image uses the app's own screenshots. Regenerate the
+2x artwork after updating those screenshots on macOS:
+
+```bash
+swift scripts/generate-task-monster-feature.swift
+```
+
+The output is `public/apps/task-monster-feature.jpg`.
+
 ### App page content blocks
 
 Optional fields on each app in `src/data/apps.ts` drive extra sections:

@@ -331,6 +331,7 @@ export const apps: App[] = [
       'Task Monster turns your to-do list into a game. Every task you finish becomes food for your very own pixel monster, so getting things done actually feels rewarding.\n\nFinish a task and it drops into the feeder as a tasty bubble. Tap feed and watch your monster chomp it down, level up and slowly evolve. The more you get done, the happier and healthier it becomes.\n\nRaise one of six lively creatures, each with its own look and personality, give it a name and pick its accent colour. It all works offline with no account required, and your tasks never leave your device.',
     category: 'Productivity',
     icon: '/apps/task-monster.png',
+    featureGraphic: '/apps/task-monster-feature.jpg',
     platforms: ['android'],
     accent: '#FF6B9D',
     downloads: [
