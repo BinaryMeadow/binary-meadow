@@ -333,7 +333,13 @@ export const apps: App[] = [
     icon: '/apps/task-monster.png',
     platforms: ['android'],
     accent: '#FF6B9D',
-    downloads: [],
+    downloads: [
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.taskmonsters',
+        platform: 'android',
+      },
+    ],
     techStack: ['React Native', 'Expo SDK 54', 'TypeScript', 'Expo Router', 'React Native Skia'],
     highlights: [
       {
