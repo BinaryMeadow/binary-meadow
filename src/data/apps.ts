@@ -324,11 +324,11 @@ export const apps: App[] = [
   {
     slug: 'task-monster',
     name: 'Task Monster',
-    tagline: 'Feed your monster by finishing tasks.',
+    tagline: 'Chores and routines that feed a friendly monster.',
     summary:
-      'A gamified to-do list where every task you finish feeds a pixel monster that grows, levels up and evolves alongside you.',
+      'A gamified to-do list for families. Every chore, routine or task that gets done feeds a friendly monster that grows, levels up and evolves.',
     description:
-      'Task Monster turns your to-do list into a game. Every task you finish becomes food for your very own pixel monster, so getting things done actually feels rewarding.\n\nFinish a task and it drops into the feeder as a tasty bubble. Tap feed and watch your monster chomp it down, level up and slowly evolve. The more you get done, the happier and healthier it becomes.\n\nRaise one of six lively creatures, each with its own look and personality, give it a name and pick its accent colour. It all works offline with no account required, and your tasks never leave your device.',
+      'Task Monster turns chores, homework and daily routines into a game the whole family will love. Every task your child finishes becomes food for their very own monster, so brushing teeth, tidying the bedroom or finishing reading practice feels like fun rather than a fight.\n\nTick off a task and it drops into the feeder as a tasty bubble. Tap feed and watch the monster chomp it down, level up and slowly evolve. The more that gets done, the happier and healthier it becomes.\n\nRaise one of twelve lively creatures, each with its own look, voice and silly tricks, give it a name and pick its colour. There are no ads, no in-app purchases, no chat and no account, and everything stays on your device.',
     category: 'Productivity',
     icon: '/apps/task-monster.png',
     featureGraphic: '/apps/task-monster-feature.jpg',
@@ -341,7 +341,7 @@ export const apps: App[] = [
         platform: 'android',
       },
     ],
-    techStack: ['React Native', 'Expo SDK 54', 'TypeScript', 'Expo Router', 'React Native Skia'],
+    techStack: ['React Native', 'Expo SDK 57', 'TypeScript', 'Expo Router', 'React Native SVG', 'Reanimated'],
     highlights: [
       {
         title: 'Finishing tasks feeds your monster',
@@ -349,31 +349,31 @@ export const apps: App[] = [
           'Every completed task drops into the feeder as a tasty bubble. Feed it to your monster to level up, and watch it grow happier and healthier the more you get done.',
       },
       {
-        title: 'Six creatures that come to life',
+        title: 'Twelve creatures that come to life',
         description:
-          'Raise one of six monster species, each with its own look and personality. They blink, wobble, chomp and evolve through levels as you stay consistent.',
+          'Raise one of twelve monster species, each with its own look, voice and personality. They blink, wobble, dance, giggle, sneeze and evolve through levels as you stay consistent.',
       },
       {
-        title: 'Private & fully offline',
+        title: 'Safe and private for families',
         description:
-          'No account, no ads and no tracking of any kind. Your tasks stay on your device, with optional Google Drive backup only if you choose it.',
+          'No ads, no in-app purchases, no chat, no account and no tracking of any kind. Everything works offline and stays on your device.',
       },
     ],
     features: [
       {
-        title: 'Gamified to-do list',
+        title: 'Chores kids want to do',
         description:
-          'Completing tasks feeds and grows your monster, so ticking things off is genuinely rewarding.',
+          'Completing tasks feeds and grows the monster, so ticking off chores and routines is genuinely rewarding.',
       },
       {
-        title: 'Six monster species',
+        title: 'Twelve monster species',
         description:
-          'Raise Blip, Cyclo, Trio, Fuzz, Finn or Nib, each with its own character, and switch whenever you like.',
+          'Raise Blip, Cyclo, Trio, Fuzz, Finn, Nib, Boo, Hopper, Sprig, Pinch, Squidge or Prickle, and switch whenever you like.',
       },
       {
         title: 'Living animations',
         description:
-          'Your monster blinks, wobbles, chomps its food and even poops out the odd finished task to keep things playful.',
+          'Monsters blink, bounce, chomp their food, do backflips and silly tricks, and each one has its own voice and sound effects.',
       },
       {
         title: 'Evolving levels',
@@ -381,9 +381,9 @@ export const apps: App[] = [
           'Keep feeding your monster to level it up and watch it evolve as your progress builds.',
       },
       {
-        title: 'Colourful task groups',
+        title: 'Routines as colourful groups',
         description:
-          'Organise work, home and everything else into tidy, colour-coded groups.',
+          'Set up morning, after-school and bedtime routines, or anything else, as tidy colour-coded groups.',
       },
       {
         title: 'Subtasks, due dates & reminders',
@@ -393,7 +393,7 @@ export const apps: App[] = [
       {
         title: 'Swipe to feed',
         description:
-          'Tick or swipe a task to send it to the feeder, with a quick undo if you change your mind.',
+          'Tick or swipe a task to send it to the feeder, with a quick undo if a tap was a mistake.',
       },
       {
         title: 'Health, happiness & XP',
@@ -403,24 +403,24 @@ export const apps: App[] = [
       {
         title: 'Make it yours',
         description:
-          'Give your monster a name, choose from six accent colours, and switch sound effects and haptics on or off.',
+          'Give your monster a name, choose from eight accent colours, and switch sound effects and haptics on or off.',
       },
       {
         title: 'Fully offline, no account',
         description:
-          'Everything works without sign-in and stays on your device, with optional Google Drive backup and sync.',
+          'Everything works without sign-in and stays on your device. No ads and no in-app purchases.',
       },
     ],
     screenshots: [
-      { src: '/screenshots/task-monster/1-tasks.jpg', alt: 'Task Monster task list with colourful groups' },
+      { src: '/screenshots/task-monster/1-tasks.jpg', alt: 'Task Monster task list with morning, after-school and bedtime routines' },
       { src: '/screenshots/task-monster/2-monster.jpg', alt: 'Task Monster monster screen with feed button and stats' },
       { src: '/screenshots/task-monster/3-feed.jpg', alt: 'Task Monster sending a finished task to the feeder' },
-      { src: '/screenshots/task-monster/4-characters.jpg', alt: 'Task Monster character picker showing six monster species and accent colours' },
+      { src: '/screenshots/task-monster/4-characters.jpg', alt: 'Task Monster character picker showing twelve monster species' },
       { src: '/screenshots/task-monster/5-new-task.jpg', alt: 'Task Monster new task form with groups, due date and reminder' },
     ],
     tabletPortrait: true,
     tabletScreenshots: [
-      { src: '/screenshots/task-monster/tablet/1-tasks.jpg', alt: 'Task Monster on a tablet: task list with colourful groups', width: 1152, height: 2048 },
+      { src: '/screenshots/task-monster/tablet/1-tasks.jpg', alt: 'Task Monster on a tablet: morning, after-school and bedtime routines', width: 1152, height: 2048 },
       { src: '/screenshots/task-monster/tablet/2-monster.jpg', alt: 'Task Monster on a tablet: monster screen with feed button and stats', width: 1152, height: 2048 },
       { src: '/screenshots/task-monster/tablet/3-settings.jpg', alt: 'Task Monster on a tablet: settings screen', width: 1152, height: 2048 },
       { src: '/screenshots/task-monster/tablet/4-new-task.jpg', alt: 'Task Monster on a tablet: new task form with groups, due date and reminder', width: 1152, height: 2048 },
