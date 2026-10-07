@@ -467,7 +467,7 @@ export const apps: App[] = [
     summary:
       'One library for the books on your device and on your self-hosted OPDS servers — most readers make you choose one or the other. Private, fast and ad-free.',
     description:
-      'Most readers make you choose: local files or a self-hosted server. OPDSy merges both into a single unified library — the folders on your device sitting alongside Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory and any OPDS 1.2 or 2.0 source, each tagged with its own colour.\n\nThat means you can start with nothing but a folder of files — add it as a local library, or open a book straight from your file manager or share sheet — and add servers later, or never. Continue Reading, favourites and search work across everything at once, whichever source a book came from.\n\nRead EPUB, MOBI, AZW3, FB2 and PDF books, CBZ/CBR comics and manga, and Markdown with Mermaid.js diagrams; jump straight to any page or chapter; look a word up in an offline dictionary; highlight passages and bookmark pages; listen to any book with built-in text-to-speech; and download titles for fully offline reading — with no account, no ads and no tracking of any kind.',
+      'Most readers make you choose: local files or a self-hosted server. OPDSy merges both into a single unified library — the folders on your device sitting alongside Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory and any OPDS 1.2 or 2.0 source, each tagged with its own colour.\n\nThat means you can start with nothing but a folder of files — add it as a local library, or open a book straight from your file manager or share sheet — and add servers later, or never. Continue Reading, favourites and search work across everything at once, whichever source a book came from.\n\nRead EPUB, MOBI, AZW3, FB2 and PDF books, CBZ/CBR comics and manga, and Markdown with Mermaid.js diagrams; listen to audiobooks in M4B, MP3 and more; jump straight to any page or chapter; look a word up in an offline dictionary; highlight passages and bookmark pages; listen to any book with built-in text-to-speech; and download titles for fully offline reading — with no account, no ads and no tracking of any kind.',
     category: 'Books & Reference',
     icon: '/apps/opdsy.png',
     featureGraphic: '/apps/opdsy-feature.png?v=2',
@@ -507,6 +507,7 @@ export const apps: App[] = [
       { src: '/screenshots/opdsy/10-1-edit-library.jpg', alt: 'OPDSy add library form with server type presets for Ubooquity, Komga, Kavita, Calibre-Web, BookOrbit, Grimmory and other OPDS servers' },
       { src: '/screenshots/opdsy/10-2-local-library.jpg', alt: 'OPDSy add local folder screen for reading files already on the device in place' },
       { src: '/screenshots/opdsy/11-audio.jpg', alt: 'OPDSy audio settings for read-aloud speed, pitch and offline or online voices' },
+      { src: '/screenshots/opdsy/11-1-audiobook-player.jpg', alt: 'OPDSy audiobook player with cover art, the current chapter, a seek bar, 30-second skips, playback speed and a sleep timer' },
       { src: '/screenshots/opdsy/12-dictionary.jpg', alt: 'OPDSy dictionary settings with the offline English dictionary installed and looked-up words saved per book' },
       { src: '/screenshots/opdsy/13-sync.jpg', alt: 'OPDSy sync settings with toggles for reading progress, favourites, servers and encrypted server sign-ins' },
       { src: '/screenshots/opdsy/14-appearance.jpg', alt: 'OPDSy appearance settings with cover backdrops, backdrop parallax, card size and accent colour options' },
@@ -560,7 +561,7 @@ export const apps: App[] = [
       {
         title: 'Comics, books and audio',
         description:
-          'Read comics and manga, ebooks in EPUB, MOBI, AZW3 and FB2, PDFs and Markdown — or have any book read aloud with text-to-speech.',
+          'Read comics and manga, ebooks in EPUB, MOBI, AZW3 and FB2, PDFs and Markdown. Listen to audiobooks, or have any book read aloud with text-to-speech.',
       },
       {
         title: 'An offline dictionary',
@@ -588,6 +589,16 @@ export const apps: App[] = [
         title: 'Books and comics, any format',
         description:
           'Reads EPUB, MOBI, AZW3, FB2 and PDF ebooks, CBZ / CBR comics and manga, and Markdown documents (with Mermaid.js diagrams) — from your device or your servers.',
+      },
+      {
+        title: 'Audiobooks',
+        description:
+          'Listen to audiobooks from your local folders, WebDAV shares and OPDS servers such as BookOrbit, Grimmory, Calibre-Web and LazyLibrarian. Plays M4B, M4A, MP3, AAC, OGG, Opus, FLAC and WAV, as single files, multi-track folders or zipped audiobooks, with cover art read from the file itself.',
+      },
+      {
+        title: 'An audiobook player',
+        description:
+          'Chapters from M4B markers or one per track, 30-second skips, a seek bar, playback speed and a sleep timer. Playback carries on in the background with lock-screen and notification controls, your place is saved as you listen, and audiobooks can be downloaded to play with no connection.',
       },
       {
         title: 'A comic & manga reader',
@@ -737,6 +748,17 @@ export const apps: App[] = [
           ],
         },
         {
+          feature: 'Audiobook playback',
+          cells: [
+            { value: 'yes', note: 'M4B, MP3, FLAC and more, with chapters' },
+            { value: 'no', note: 'No audio formats in its supported list' },
+            { value: 'no', note: 'No audio formats in its supported list' },
+            { value: 'partial', note: 'Plays audio files in a built-in media player' },
+            { value: 'no', note: 'Comics and manga only' },
+            { value: 'unknown', note: 'Not in the feature list' },
+          ],
+        },
+        {
           feature: 'Cross-device sync, end-to-end encrypted',
           cells: [
             { value: 'yes', note: 'Your own Google Drive, encrypted' },
@@ -813,7 +835,7 @@ export const apps: App[] = [
         },
       ],
       note:
-        'Compiled in August 2026 and updated in September 2026 from each app’s own website, Google Play listing, documentation or public source code — column headings link to the source we used. “Unconfirmed” means we could not verify it from one of those sources; it does not mean the feature is missing. Paid tiers change what an app can do, so rows are judged on the version named in the column. These are all good apps built by people who care; if anything here is out of date, tell us and we will correct it.',
+        'Compiled in August 2026 and updated in October 2026 from each app’s own website, Google Play listing, documentation or public source code — column headings link to the source we used. “Unconfirmed” means we could not verify it from one of those sources; it does not mean the feature is missing. Paid tiers change what an app can do, so rows are judged on the version named in the column. These are all good apps built by people who care; if anything here is out of date, tell us and we will correct it.',
     },
     serverStructures: {
       lead:
