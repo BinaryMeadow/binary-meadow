@@ -489,7 +489,7 @@ export const apps: App[] = [
     },
     techStack: ['Expo SDK 56', 'React Native', 'TypeScript', 'TanStack Query'],
     screenshots: [
-      { src: '/screenshots/opdsy/01-home.jpg', featured: true, alt: 'OPDSy home screen with a continue reading card, favourites and the latest items from a connected server' },
+      { src: '/screenshots/opdsy/01-home.jpg', featured: true, alt: 'OPDSy home screen with a continue reading card, favourites and recently opened books and comics' },
       { src: '/screenshots/opdsy/02-library.jpg', featured: true, alt: 'OPDSy library screen listing folders grouped by each connected OPDS library' },
       { src: '/screenshots/opdsy/03-comic-list.jpg', featured: true, alt: 'OPDSy comics folder showing a grid of comic series cover art' },
       { src: '/screenshots/opdsy/04-book-list.jpg', alt: 'OPDSy books folder showing a grid of ebook covers with titles and authors' },
@@ -518,7 +518,7 @@ export const apps: App[] = [
       { src: '/screenshots/opdsy/tablet/1-home.jpg', alt: 'OPDSy on a tablet — home screen with continue reading and favourites' },
       { src: '/screenshots/opdsy/tablet/2-library.jpg', alt: 'OPDSy on a tablet — unified library browsing view' },
       { src: '/screenshots/opdsy/tablet/3-books.jpg', alt: 'OPDSy on a tablet — book list with cover art' },
-      { src: '/screenshots/opdsy/tablet/3.5-book.jpg', alt: 'OPDSy on a tablet — ebook reader in a two-page layout with highlighting and audio' },
+      { src: '/screenshots/opdsy/tablet/3.5-book.jpg', alt: 'OPDSy on a tablet — ebook reader in a two-page layout with a highlighted passage' },
       { src: '/screenshots/opdsy/tablet/4-comics.jpg', alt: 'OPDSy on a tablet — comic reader in a two-page spread' },
       { src: '/screenshots/opdsy/tablet/5-downloads.jpg', alt: 'OPDSy on a tablet — offline downloads screen' },
       { src: '/screenshots/opdsy/tablet/6-settings.jpg', alt: 'OPDSy on a tablet — settings screen' },
