@@ -78,14 +78,10 @@ python3 -m venv /tmp/qrvenv
 
 ### Task Monster feature graphic
 
-The Task Monster hero image uses the app's own screenshots. Regenerate the
-2x artwork after updating those screenshots on macOS:
-
-```bash
-swift scripts/generate-task-monster-feature.swift
-```
-
-The output is `public/apps/task-monster-feature.jpg`. After regenerating it,
+The Task Monster hero image is copied from `store/feature-graphic.png` in
+the [Task Monster repository](https://github.com/BinaryMeadow/task-monster)
+to `public/apps/task-monster-feature.png`. Keep it in sync with the app's
+store artwork rather than generating a separate website design. After updating it,
 run `python3 scripts/generate-og.py` (requires Pillow) to refresh the fitted
 1200×630 sharing image at `public/og/task-monster.png`. Include both images
 in the deployment.

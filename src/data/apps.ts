@@ -331,7 +331,7 @@ export const apps: App[] = [
       'Task Monster turns chores, homework and daily routines into a game the whole family will love. Every task your child finishes becomes food for their very own monster, so brushing teeth, tidying the bedroom or finishing reading practice feels like fun rather than a fight.\n\nTick off a task and it drops into the feeder as a tasty bubble. Tap feed and watch the monster chomp it down, level up and slowly evolve. The more that gets done, the happier and healthier it becomes.\n\nRaise one of twelve lively creatures, each with its own look, voice and silly tricks, give it a name and pick its colour. There are no ads, no in-app purchases, no chat and no account, and everything stays on your device.',
     category: 'Productivity',
     icon: '/apps/task-monster.png',
-    featureGraphic: '/apps/task-monster-feature.jpg',
+    featureGraphic: '/apps/task-monster-feature.png',
     platforms: ['android'],
     accent: '#FF6B9D',
     downloads: [
