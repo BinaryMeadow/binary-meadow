@@ -85,7 +85,10 @@ The Task Monster hero image uses the app's own screenshots. Regenerate the
 swift scripts/generate-task-monster-feature.swift
 ```
 
-The output is `public/apps/task-monster-feature.jpg`.
+The output is `public/apps/task-monster-feature.jpg`. After regenerating it,
+run `python3 scripts/generate-og.py` (requires Pillow) to refresh the fitted
+1200×630 sharing image at `public/og/task-monster.png`. Include both images
+in the deployment.
 
 ### App page content blocks
 
