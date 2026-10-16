@@ -467,7 +467,7 @@ export const apps: App[] = [
     summary:
       'One library for the books on your device and on your self-hosted OPDS servers — most readers make you choose one or the other. Private, fast and ad-free.',
     description:
-      'Most readers make you choose: local files or a self-hosted server. OPDSy merges both into a single unified library — the folders on your device sitting alongside Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory and any OPDS 1.2 or 2.0 source, each tagged with its own colour.\n\nThat means you can start with nothing but a folder of files — add it as a local library, or open a book straight from your file manager or share sheet — and add servers later, or never. Continue Reading, favourites and search work across everything at once, whichever source a book came from.\n\nRead EPUB, MOBI, AZW3, FB2 and PDF books, CBZ/CBR comics and manga, and Markdown with Mermaid.js diagrams; listen to audiobooks in M4B, MP3 and more; jump straight to any page or chapter; look a word up in an offline dictionary; highlight passages and bookmark pages; listen to any book with built-in text-to-speech; and download titles for fully offline reading — with no account, no ads and no tracking of any kind.',
+      'Most readers make you choose: local files or a self-hosted server. OPDSy merges both into a single unified library — the folders on your device sitting alongside Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory, LazyLibrarian and any OPDS 1.2 or 2.0 source, each tagged with its own colour.\n\nThat means you can start with nothing but a folder of files — add it as a local library, or open a book straight from your file manager or share sheet — and add servers later, or never. Continue Reading, favourites and search work across everything at once, whichever source a book came from.\n\nRead EPUB, MOBI, AZW3, FB2 and PDF books, CBZ/CBR comics and manga, and Markdown with Mermaid.js diagrams; listen to audiobooks in M4B, MP3 and more; jump straight to any page or chapter; look a word up in an offline dictionary; highlight passages and bookmark pages; listen to any book with built-in text-to-speech; and download titles for fully offline reading — with no account, no ads and no tracking of any kind.',
     category: 'Books & Reference',
     icon: '/apps/opdsy.png',
     featureGraphic: '/apps/opdsy-feature.png?v=2',
@@ -546,7 +546,7 @@ export const apps: App[] = [
       {
         title: 'One library, local and self-hosted',
         description:
-          'Most readers make you choose. OPDSy merges on-device folders with Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory and any OPDS 1.2 / 2.0 source into a single unified home.',
+          'Most readers make you choose. OPDSy merges on-device folders with Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory, LazyLibrarian and any OPDS 1.2 / 2.0 source into a single unified home.',
       },
       {
         title: 'Private by design, zero tracking',
@@ -583,7 +583,7 @@ export const apps: App[] = [
       {
         title: 'One library, many sources',
         description:
-          'Mix local folders with as many OPDS servers as you like — Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory or any OPDS 1.2 / 2.0 source — merged into a single home, each tagged with a per-source colour badge.',
+          'Mix local folders with as many OPDS servers as you like — Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory, LazyLibrarian or any OPDS 1.2 / 2.0 source — merged into a single home, each tagged with a per-source colour badge.',
       },
       {
         title: 'Books and comics, any format',
@@ -1064,9 +1064,65 @@ export const apps: App[] = [
           caveat:
             'Grimmory has to be told to switch its OPDS server on, and it uses a separate set of OPDS accounts from your normal web login — so create one under its settings and use those details in OPDSy. Its Series menu is built from each book’s metadata rather than your folders, so it stays empty until your files carry a series name.',
         },
+        {
+          name: 'LazyLibrarian',
+          href: 'https://lazylibrarian.gitlab.io/',
+          summary:
+            'Book-first, with ebooks and audiobooks kept apart. Every menu only appears once it has something in it.',
+          tiles: [
+            {
+              name: 'Recent eBooks',
+              shape: 'list',
+              note: 'every ebook, newest first',
+              wayIn: true,
+            },
+            {
+              name: 'Recent AudioBooks',
+              shape: 'list',
+              note: 'every audiobook, newest first',
+              wayIn: true,
+            },
+            { name: 'Recent Comics', shape: 'list' },
+            { name: 'Recent Magazine Issues', shape: 'list' },
+            { name: 'Best Rated eBooks', shape: 'metadata' },
+            { name: 'Best Rated AudioBooks', shape: 'metadata' },
+            {
+              name: 'Ebook Authors',
+              shape: 'metadata',
+              path: ['An author', 'Their books'],
+            },
+            {
+              name: 'Audiobook Authors',
+              shape: 'metadata',
+              path: ['An author', 'Their audiobooks'],
+            },
+            {
+              name: 'Series',
+              shape: 'metadata',
+              path: ['A series', 'Its books'],
+            },
+            {
+              name: 'Genres',
+              shape: 'metadata',
+              path: ['A genre', 'Its books'],
+            },
+            {
+              name: 'Magazines',
+              shape: 'menu',
+              path: ['A magazine', 'Its issues'],
+            },
+            {
+              name: 'Comics',
+              shape: 'menu',
+              path: ['A comic', 'Its issues'],
+            },
+          ],
+          caveat:
+            'LazyLibrarian builds its catalogue from its own book database, not your folders, so a file only shows up once LazyLibrarian has matched it to a book it knows. OPDS is off until you switch it on in its settings, and audiobooks only appear once you have set an audiobook folder there too. Comics and magazines only show if you use LazyLibrarian for them.',
+        },
       ],
       note:
-        'Last checked 20 August 2026. An empty entry is normal rather than a fault — reading lists, collections and shelves stay empty until you make one on the server, and the “continue reading” style entries fill up only as you read.',
+        'Last checked 20 August 2026, and LazyLibrarian on 16 October 2026. An empty entry is normal rather than a fault — reading lists, collections and shelves stay empty until you make one on the server, and the “continue reading” style entries fill up only as you read.',
     },
     faqs: [
       {
@@ -1077,7 +1133,7 @@ export const apps: App[] = [
       {
         question: 'Which servers does OPDSy work with?',
         answer:
-          'Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit and Grimmory are all supported, along with any other server that speaks OPDS 1.2 or OPDS 2.0. Comic page streaming uses OPDS-PSE where your server offers it.',
+          'Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory and LazyLibrarian are all supported, along with any other server that speaks OPDS 1.2 or OPDS 2.0. Comic page streaming uses OPDS-PSE where your server offers it.',
       },
       {
         question: 'Can I use local files and servers at the same time?',
