@@ -28,6 +28,14 @@ export const metadata: Metadata = {
   },
 };
 
+const formatDate = (iso: string) =>
+  new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(iso));
+
 export default function ArticlesPage() {
   return (
     <div className={`container ${styles.index}`}>
@@ -40,14 +48,13 @@ export default function ArticlesPage() {
       <header className={styles.heading}>
         <span className="eyebrow">From the workshop</span>
         <h1 className="section-title">Articles</h1>
-        <p className="section-lead">
-          Things learnt whilst building our apps, turned into practical guides
-          for the people using them.
-        </p>
       </header>
       <div className={styles.cards}>
         {articles.map((article) => (
           <article key={article.slug} className={styles.card}>
+            <time dateTime={article.published} className={styles.date}>
+              {formatDate(article.published)}
+            </time>
             <h2>
               <Link href={`/articles/${article.slug}/`}>{article.title}</Link>
             </h2>

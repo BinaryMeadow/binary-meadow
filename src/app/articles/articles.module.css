@@ -21,6 +21,14 @@
   background: var(--bg-soft);
 }
 
+.date {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--body);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .card h2 {
   font-size: 1.65rem;
   line-height: 1.2;
