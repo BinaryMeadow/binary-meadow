@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { apps, getApp } from '@/data/apps';
+import { opdsServersArticle } from '@/data/articles';
 import { company } from '@/lib/site';
 import {
   JsonLd,
@@ -334,6 +335,15 @@ export default async function AppPage({
               data={app.serverStructures}
               caption={`What each supported server publishes to ${app.name}`}
             />
+            {app.slug === 'opdsy' && (
+              <p className={styles.faqFoot}>
+                Still choosing a server?{' '}
+                <Link href={`/articles/${opdsServersArticle.slug}/`}>
+                  Read our OPDS server comparison
+                </Link>
+                .
+              </p>
+            )}
           </div>
         </section>
       )}

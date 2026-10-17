@@ -1,5 +1,34 @@
 import { company } from './site';
 import type { App, Screenshot } from '@/data/apps';
+import type { Article } from '@/data/articles';
+
+export function articleSchema(article: Article) {
+  const url = `${company.url}/articles/${article.slug}/`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    datePublished: article.published,
+    inLanguage: 'en-GB',
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    author: {
+      '@type': 'Person',
+      name: company.founderName,
+      url: company.founderUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: company.name,
+      url: company.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${company.url}/apps/binary-meadow-mark.png`,
+      },
+    },
+  };
+}
 
 /**
  * Renders a JSON-LD <script> tag. Safe for static export — the data is

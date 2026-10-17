@@ -20,7 +20,8 @@ server runtime required.
 - **Next.js 14** (App Router) with `output: 'export'` for static hosting
 - **React 18** + **TypeScript** (strict)
 - **CSS Modules** + a small set of global CSS variables for the design system
-- No client-side data fetching — all content lives in `src/data/apps.ts`
+- No client-side data fetching. App content lives in `src/data/apps.ts`;
+  article metadata lives in `src/data/articles.ts`.
 
 ## Design
 
@@ -97,6 +98,17 @@ Optional fields on each app in `src/data/apps.ts` drive extra sections:
 | `faqs` | The FAQ accordion, also emitted as `FAQPage` structured data. |
 
 ## SEO
+
+### Articles
+
+`/articles/` lists the articles registered in `src/data/articles.ts`. Each article
+has a static App Router page under `src/app/articles/<slug>/page.tsx`, with
+shared styles in `src/app/articles/articles.module.css`. Register new articles
+and add their page together so the index and sitemap point to a real route.
+Use the registered metadata for the page title, description, canonical URL and
+`Article` structured data, and include a breadcrumb back to the articles index.
+Publication dates must reflect the actual publication date. Keep comparisons
+linked to primary sources and distinguish server features from reader support.
 
 The site follows current SEO best practices:
 

@@ -18,6 +18,7 @@ export const company = {
 
 export const nav = [
   { label: 'Apps', href: '/#apps' },
+  { label: 'Articles', href: '/articles/' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ];
