@@ -92,8 +92,9 @@ export default function RootLayout({
         <Footer />
         {process.env.NODE_ENV === 'production' && (
           <Script
+            type="module"
             src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon='{"token": "de9fc1ea7b0441658e1fef3bdf41bfcd"}'
+            data-cf-beacon='{"token": "3fe7dfbaf45f4827892c9342ad84923c"}'
             strategy="afterInteractive"
           />
         )}
