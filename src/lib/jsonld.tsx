@@ -105,6 +105,17 @@ export function softwareApplicationSchema(app: App) {
   const playListing = app.downloads.find((d) =>
     d.href.includes('play.google.com'),
   );
+  const storeUrls = app.downloads
+    .filter(
+      (d) =>
+        d.href.includes('play.google.com') || d.href.includes('apps.apple.com'),
+    )
+    .map((d) => d.href);
+  const storeOffers = storeUrls.map((url) => ({
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    url,
+  }));
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -124,7 +135,9 @@ export function softwareApplicationSchema(app: App) {
     applicationSubCategory: app.category,
     operatingSystem: app.platforms.map((p) => OS_MAP[p]).join(', '),
     featureList: app.features.map((f) => f.title),
-    ...(playListing ? { downloadUrl: playListing.href } : {}),
+    ...(storeUrls.length > 0
+      ? { downloadUrl: storeUrls.length === 1 ? storeUrls[0] : storeUrls }
+      : {}),
     ...(app.repository ? { codeRepository: app.repository } : {}),
     ...(app.pricing
       ? app.pricing.free
@@ -146,13 +159,10 @@ export function softwareApplicationSchema(app: App) {
             // Paid app: the store listing is the single source of truth for
             // price and currency, so no price is asserted here.
             isAccessibleForFree: false,
-            ...(playListing
+            ...(storeOffers.length > 0
               ? {
-                  offers: {
-                    '@type': 'Offer',
-                    availability: 'https://schema.org/InStock',
-                    url: playListing.href,
-                  },
+                  offers:
+                    storeOffers.length === 1 ? storeOffers[0] : storeOffers,
                 }
               : {}),
           }

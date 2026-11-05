@@ -68,6 +68,9 @@ export default async function AppPage({
   const playLink = app.downloads.find((d) =>
     d.href.includes('play.google.com'),
   );
+  const appStoreLink = app.downloads.find((d) =>
+    d.href.includes('apps.apple.com'),
+  );
 
   return (
     <article>
@@ -114,6 +117,14 @@ export default async function AppPage({
                   slug={app.slug}
                   name={app.name}
                   href={playLink.href}
+                />
+              )}
+              {appStoreLink && (
+                <QrDownload
+                  slug={app.slug}
+                  name={app.name}
+                  href={appStoreLink.href}
+                  store="ios"
                 />
               )}
             </div>
@@ -387,7 +398,9 @@ export default async function AppPage({
               </h2>
               <p className={styles.ctaText}>
                 {group === 'Mobile'
-                  ? playLink
+                  ? playLink && appStoreLink
+                    ? 'Available for Android on Google Play and for iPhone and iPad on the App Store. Scan a code or tap a badge.'
+                    : playLink
                     ? 'Available for Android on Google Play — scan the code or tap the badge.'
                     : app.downloads.length > 0
                       ? 'Available for Android. Store listings are on the way — grab the latest build below.'
@@ -400,13 +413,26 @@ export default async function AppPage({
             </div>
             <div className={styles.ctaActions}>
               <DownloadButtons downloads={app.downloads} />
-              {playLink && (
-                <QrDownload
-                  slug={app.slug}
-                  name={app.name}
-                  href={playLink.href}
-                  variant="cta"
-                />
+              {(playLink || appStoreLink) && (
+                <div className={styles.ctaQrs}>
+                  {playLink && (
+                    <QrDownload
+                      slug={app.slug}
+                      name={app.name}
+                      href={playLink.href}
+                      variant="cta"
+                    />
+                  )}
+                  {appStoreLink && (
+                    <QrDownload
+                      slug={app.slug}
+                      name={app.name}
+                      href={appStoreLink.href}
+                      store="ios"
+                      variant="cta"
+                    />
+                  )}
+                </div>
               )}
             </div>
           </div>

@@ -1,6 +1,7 @@
 .group {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.75rem;
 }
 
@@ -13,18 +14,21 @@
   font-size: 0.85rem;
 }
 
-.playBadgeLink {
+.playBadgeLink,
+.appStoreBadgeLink {
   display: inline-flex;
   align-items: center;
   border-radius: 8px;
   transition: opacity 0.15s ease;
 }
 
-.playBadgeLink:hover {
+.playBadgeLink:hover,
+.appStoreBadgeLink:hover {
   opacity: 0.85;
 }
 
-.playBadgeLink:focus-visible {
+.playBadgeLink:focus-visible,
+.appStoreBadgeLink:focus-visible {
   outline: 2px solid var(--green-700);
   outline-offset: 3px;
 }
@@ -37,6 +41,12 @@
 
 .sm .playBadge {
   height: 50px;
+}
+
+.appStoreBadge {
+  display: block;
+  height: 40px;
+  width: auto;
 }
 
 /* Placeholder shown for an app that has no download links yet. Styled as an

@@ -471,7 +471,7 @@ export const apps: App[] = [
     category: 'Books & Reference',
     icon: '/apps/opdsy.png',
     featureGraphic: '/apps/opdsy-feature.png?v=2',
-    platforms: ['android'],
+    platforms: ['android', 'ios'],
     accent: '#1f6f8b',
     crossPromo: 'spinely',
     downloads: [
@@ -480,11 +480,16 @@ export const apps: App[] = [
         href: 'https://play.google.com/store/apps/details?id=com.opdsy',
         platform: 'android',
       },
+      {
+        label: 'App Store',
+        href: 'https://apps.apple.com/app/opdsy/id6827915459',
+        platform: 'ios',
+      },
     ],
     pricing: {
       label: 'One-time purchase · No ads · No subscription',
       detail:
-        'Buy OPDSy once on Google Play and it is yours — no subscription, no in-app purchases, no ads and no pro tier. Every feature, sync included, is there from the first launch.',
+        'Buy OPDSy once on Google Play or the App Store and it is yours. No subscription, no in-app purchases, no ads and no pro tier. Every feature, sync included, is there from the first launch.',
       free: false,
     },
     techStack: ['Expo SDK 56', 'React Native', 'TypeScript', 'TanStack Query'],
@@ -664,7 +669,7 @@ export const apps: App[] = [
       {
         title: 'Secure credentials',
         description:
-          'Server addresses, usernames and passwords are kept in your device’s secure storage (the Android Keystore) and excluded from persisted app state — never sent to Binary Meadow.',
+          'Server addresses, usernames and passwords are kept in your device’s secure storage (the Android Keystore or the iOS Keychain) and excluded from persisted app state — never sent to Binary Meadow.',
       },
       {
         title: 'Private cross-device sync',
@@ -1149,12 +1154,12 @@ export const apps: App[] = [
       {
         question: 'Does OPDSy support HTTPS, self-signed certificates and reverse proxies?',
         answer:
-          'HTTPS and standard reverse-proxy setups work normally, including servers hosted on a subpath. Enter the full base URL of your OPDS feed, including any port or path. Certificates must be trusted by Android, so if you use a self-signed or private CA certificate, install it in your device’s user certificate store first.',
+          'HTTPS and standard reverse-proxy setups work normally, including servers hosted on a subpath. Enter the full base URL of your OPDS feed, including any port or path. Certificates must be trusted by your device, so if you use a self-signed or private CA certificate, install it on your device first. On Android, add it to the user certificate store. On iPhone and iPad, install the profile, then turn on full trust for it in Settings › General › About › Certificate Trust Settings.',
       },
       {
         question: 'How does OPDSy authenticate to my server?',
         answer:
-          'HTTP Basic authentication, as used by Komga, Kavita, Ubooquity and Calibre-Web. Your server address, username and password are stored in the Android Keystore, kept out of persisted app state, and never sent to Binary Meadow.',
+          'HTTP Basic authentication, as used by Komga, Kavita, Ubooquity and Calibre-Web. Your server address, username and password are stored in the Android Keystore or the iOS Keychain, kept out of persisted app state, and never sent to Binary Meadow.',
       },
       {
         question: 'A server is down or slow — does the whole library break?',
@@ -1174,7 +1179,7 @@ export const apps: App[] = [
       {
         question: 'How much does OPDSy cost?',
         answer:
-          'OPDSy is a one-time purchase on Google Play — buy it once and it is yours on every Android device signed in to that Google account. There is no subscription, there are no in-app purchases or ads, and every feature, including encrypted sync, is included. The Play listing shows the current price in your own currency.',
+          'OPDSy is a one-time purchase on Google Play and on the App Store. Buy it once and it is yours on every device signed in to the same Google account or Apple Account. Each store sells it separately, so a purchase on one does not carry over to the other. There is no subscription, there are no in-app purchases or ads, and every feature, including encrypted sync, is included. Each store listing shows the current price in your own currency.',
       },
       {
         question: 'How does sync work, and can Binary Meadow see my library?',
@@ -1206,7 +1211,7 @@ export const apps: App[] = [
         {
           title: 'Server credentials',
           description:
-            'The addresses, usernames and passwords for your OPDS servers are kept in your device’s secure storage (the Android Keystore) and excluded from persisted app state. They are used only to connect to the servers you choose and are never sent to Binary Meadow.',
+            'The addresses, usernames and passwords for your OPDS servers are kept in your device’s secure storage (the Android Keystore or the iOS Keychain) and excluded from persisted app state. They are used only to connect to the servers you choose and are never sent to Binary Meadow.',
         },
         {
           title: 'Your library content',
@@ -1233,6 +1238,7 @@ export const apps: App[] = [
         'Your self-hosted OPDS servers (e.g. Ubooquity, Komga, Kavita) — contacted only with the details you provide, under their own policies.',
         'Google Drive — used only if you enable cross-device sync, to store an end-to-end-encrypted copy of your data in a hidden, app-private folder of your own Google account. OPDSy requests only the app-data scope (drive.appdata) and cannot see any of your other Drive files.',
         'Google Play — distributes the app and processes installs under its own privacy policy.',
+        'Apple App Store — distributes the app on iPhone and iPad and processes installs under Apple’s own privacy policy.',
       ],
       childrenNote:
         'OPDSy is suitable for all ages and can be used in a family or children’s setting. As it displays only the files and servers you configure, the person setting those up controls what is available — so we recommend that a parent or guardian chooses appropriate folders and sources for younger users.',

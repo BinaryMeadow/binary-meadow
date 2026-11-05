@@ -5,6 +5,20 @@ import styles from './DownloadButtons.module.css';
 /** Official "Get it on Google Play" badge aspect ratio (646 x 250). */
 const PLAY_BADGE_RATIO = 646 / 250;
 
+/** Official "Download on the App Store" badge aspect ratio (119.66 x 40). */
+const APP_STORE_BADGE_RATIO = 119.66 / 40;
+
+/**
+ * Apple's badge has no padding around it, but the Play badge PNG does: its
+ * visible artwork is about two thirds of the image height. 40px, Apple's
+ * minimum on-screen height, lines the two up at the default size.
+ */
+const APP_STORE_BADGE_HEIGHT = 40;
+
+function isAppStore(dl: DownloadLink): boolean {
+  return dl.platform === 'ios' && dl.href.includes('apps.apple.com');
+}
+
 function isGooglePlay(dl: DownloadLink): boolean {
   return (
     dl.platform === 'android' &&
@@ -22,6 +36,7 @@ export default function DownloadButtons({
 }) {
   const badgeHeight = size === 'sm' ? 50 : 60;
   const badgeWidth = Math.round(badgeHeight * PLAY_BADGE_RATIO);
+  const appStoreWidth = Math.round(APP_STORE_BADGE_HEIGHT * APP_STORE_BADGE_RATIO);
 
   // An app with no links yet is unreleased, not broken. Say so, rather than
   // rendering an empty row beneath a heading that promises a download.
@@ -58,6 +73,28 @@ export default function DownloadButtons({
                 width={badgeWidth}
                 height={badgeHeight}
                 className={styles.playBadge}
+                unoptimized
+              />
+            </a>
+          );
+        }
+
+        if (isAppStore(dl)) {
+          return (
+            <a
+              key={dl.label}
+              href={dl.href}
+              className={styles.appStoreBadgeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download on the App Store"
+            >
+              <Image
+                src="/badges/app-store-badge.svg"
+                alt="Download on the App Store"
+                width={appStoreWidth}
+                height={APP_STORE_BADGE_HEIGHT}
+                className={styles.appStoreBadge}
                 unoptimized
               />
             </a>

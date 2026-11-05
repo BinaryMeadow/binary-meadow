@@ -362,6 +362,11 @@
   flex-wrap: wrap;
 }
 
+.ctaQrs {
+  display: flex;
+  gap: 0.75rem;
+}
+
 @media (min-width: 760px) {
   .downloadCta {
     flex-direction: row;
