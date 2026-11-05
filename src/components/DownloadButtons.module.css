@@ -43,10 +43,24 @@
   height: 50px;
 }
 
+/* Matches the Play badge PNG: visible height 168/250 of the image, with
+   41/250 of transparent padding on each side. */
+.appStoreBadgeLink {
+  padding: 9.84px;
+}
+
+.sm .appStoreBadgeLink {
+  padding: 8.2px;
+}
+
 .appStoreBadge {
   display: block;
-  height: 40px;
+  height: 40.32px;
   width: auto;
+}
+
+.sm .appStoreBadge {
+  height: 33.6px;
 }
 
 /* Placeholder shown for an app that has no download links yet. Styled as an

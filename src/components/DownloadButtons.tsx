@@ -9,11 +9,12 @@ const PLAY_BADGE_RATIO = 646 / 250;
 const APP_STORE_BADGE_RATIO = 119.66 / 40;
 
 /**
- * Apple's badge has no padding around it, but the Play badge PNG does: its
- * visible artwork is about two thirds of the image height. 40px, Apple's
- * minimum on-screen height, lines the two up at the default size.
+ * The Play badge PNG has transparent padding around it: the visible badge is
+ * 564 x 168 inside the 646 x 250 image. Apple's SVG has none, so it is sized
+ * to the Play badge's visible height and given the same padding (in CSS), so
+ * both badges look the same height and sit the same distance apart.
  */
-const APP_STORE_BADGE_HEIGHT = 40;
+const PLAY_VISIBLE_HEIGHT_RATIO = 168 / 250;
 
 function isAppStore(dl: DownloadLink): boolean {
   return dl.platform === 'ios' && dl.href.includes('apps.apple.com');
@@ -36,7 +37,8 @@ export default function DownloadButtons({
 }) {
   const badgeHeight = size === 'sm' ? 50 : 60;
   const badgeWidth = Math.round(badgeHeight * PLAY_BADGE_RATIO);
-  const appStoreWidth = Math.round(APP_STORE_BADGE_HEIGHT * APP_STORE_BADGE_RATIO);
+  const appStoreHeight = Math.round(badgeHeight * PLAY_VISIBLE_HEIGHT_RATIO);
+  const appStoreWidth = Math.round(appStoreHeight * APP_STORE_BADGE_RATIO);
 
   // An app with no links yet is unreleased, not broken. Say so, rather than
   // rendering an empty row beneath a heading that promises a download.
@@ -93,7 +95,7 @@ export default function DownloadButtons({
                 src="/badges/app-store-badge.svg"
                 alt="Download on the App Store"
                 width={appStoreWidth}
-                height={APP_STORE_BADGE_HEIGHT}
+                height={appStoreHeight}
                 className={styles.appStoreBadge}
                 unoptimized
               />
