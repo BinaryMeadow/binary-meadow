@@ -500,6 +500,7 @@ export const apps: App[] = [
       { src: '/screenshots/opdsy/06-2-book-reading-3.jpg', alt: 'OPDSy ebook reader with the contents panel open for jumping to a chapter or page number' },
       { src: '/screenshots/opdsy/06-3-highlight.jpg', alt: 'OPDSy text highlighting with five highlight colours and copy, share and note actions' },
       { src: '/screenshots/opdsy/06-4-dictionary-word.jpg', featured: true, alt: 'OPDSy offline dictionary lookup showing the definition of a tapped word while reading' },
+      { src: '/screenshots/opdsy/06-5-search.jpg', alt: 'OPDSy find in book, searching an ebook for a word with the current match highlighted, a result count and the page number' },
       { src: '/screenshots/opdsy/07-highlights-bookmarks.jpg', alt: 'OPDSy highlights and bookmarks screen with tabs for highlights, bookmarks and looked-up words' },
       { src: '/screenshots/opdsy/08-downloads.jpg', alt: 'OPDSy downloads screen listing books and folders saved for offline reading' },
       { src: '/screenshots/opdsy/09-settings.jpg', alt: 'OPDSy settings screen with libraries, sync, downloads, audio, dictionary, appearance, e-reader, language and about' },
