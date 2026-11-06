@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { apps, getApp } from '@/data/apps';
+import { apps, getApp, type CreditPart } from '@/data/apps';
 import { opdsServersArticle } from '@/data/articles';
 import { company } from '@/lib/site';
 import {
@@ -10,6 +10,7 @@ import {
   softwareApplicationSchema,
   breadcrumbSchema,
   faqPageSchema,
+  videoObjectSchema,
 } from '@/lib/jsonld';
 import PlatformBadge, { platformGroup } from '@/components/PlatformBadge';
 import DownloadButtons from '@/components/DownloadButtons';
@@ -18,6 +19,18 @@ import ServerStructures from '@/components/ServerStructures';
 import Faq from '@/components/Faq';
 import QrDownload from '@/components/QrDownload';
 import styles from './app.module.css';
+
+function Credit({ parts }: { parts: CreditPart[] }) {
+  return parts.map((part, i) =>
+    part.href ? (
+      <a key={i} href={part.href} target="_blank" rel="noopener noreferrer">
+        {part.text}
+      </a>
+    ) : (
+      <span key={i}>{part.text}</span>
+    ),
+  );
+}
 
 export function generateStaticParams() {
   return apps.map((app) => ({ slug: app.slug }));
@@ -76,6 +89,7 @@ export default async function AppPage({
     <article>
       <JsonLd data={softwareApplicationSchema(app)} />
       {app.faqs && <JsonLd data={faqPageSchema(app.faqs)} />}
+      {app.video && <JsonLd data={videoObjectSchema(app.video)} />}
       <JsonLd
         data={breadcrumbSchema([
           { name: 'Home', url: `${company.url}/` },
@@ -166,6 +180,47 @@ export default async function AppPage({
           </div>
         </div>
       </section>
+
+      {app.video && (
+        <section
+          id="video"
+          className={`${styles.video} ${styles.anchorSection}`}
+          style={{ ['--app-accent' as string]: app.accent }}
+        >
+          <div className="container">
+            <span className="eyebrow">See it in action</span>
+            <h2 className="section-title">
+              <a href="#video" className={styles.anchorLink}>
+                {app.video.title}
+              </a>
+            </h2>
+            <video
+              className={styles.videoPlayer}
+              controls
+              playsInline
+              preload="none"
+              poster={app.video.poster}
+              width={1920}
+              height={1080}
+              aria-label={app.video.description}
+            >
+              <source src={app.video.src} type="video/mp4" />
+              <track
+                kind="captions"
+                src={app.video.captions}
+                srcLang="en"
+                label="English"
+                default
+              />
+            </video>
+            {app.video.credit && (
+              <p className={styles.shotCredit}>
+                <Credit parts={app.video.credit} />
+              </p>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Highlights */}
       <section id="highlights" className={`${styles.highlights} ${styles.anchorSection}`}>
@@ -287,20 +342,7 @@ export default async function AppPage({
           )}
           {app.screenshotsCredit && (
             <p className={styles.shotCredit}>
-              {app.screenshotsCredit.map((part, i) =>
-                part.href ? (
-                  <a
-                    key={i}
-                    href={part.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {part.text}
-                  </a>
-                ) : (
-                  <span key={i}>{part.text}</span>
-                )
-              )}
+              <Credit parts={app.screenshotsCredit} />
             </p>
           )}
         </div>

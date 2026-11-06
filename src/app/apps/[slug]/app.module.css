@@ -150,6 +150,21 @@
 }
 
 /* Features */
+.video {
+  padding: 4rem 0;
+}
+
+.videoPlayer {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin-top: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  background: #08070f;
+}
+
 .highlights {
   background: var(--green-950);
   padding: 5rem 0;

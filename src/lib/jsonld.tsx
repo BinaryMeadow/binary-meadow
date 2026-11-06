@@ -1,5 +1,5 @@
 import { company } from './site';
-import type { App, Screenshot } from '@/data/apps';
+import type { App, AppVideo, Screenshot } from '@/data/apps';
 import type { Article } from '@/data/articles';
 
 export function articleSchema(article: Article) {
@@ -228,5 +228,24 @@ export function appsItemListSchema(list: App[]) {
       name: app.name,
       url: `${company.url}/apps/${app.slug}/`,
     })),
+  };
+}
+
+export function videoObjectSchema(video: AppVideo) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: `${company.url}${video.poster}`,
+    contentUrl: `${company.url}${video.src}`,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    inLanguage: 'en-GB',
+    publisher: {
+      '@type': 'Organization',
+      name: company.name,
+      url: company.url,
+    },
   };
 }

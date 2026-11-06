@@ -153,6 +153,20 @@ export interface AppPrivacy {
   childrenNote: string;
 }
 
+export interface AppVideo {
+  src: string;
+  poster: string;
+  /** WebVTT captions file, in English. */
+  captions: string;
+  title: string;
+  description: string;
+  /** ISO 8601 date the video was published. */
+  uploadDate: string;
+  /** ISO 8601 duration, e.g. "PT47S". */
+  duration: string;
+  credit?: CreditPart[];
+}
+
 export interface App {
   slug: string;
   name: string;
@@ -183,6 +197,8 @@ export interface App {
   tabletPortrait?: boolean;
   /** Optional attribution shown beneath the screenshots (e.g. third-party artwork). */
   screenshotsCredit?: CreditPart[];
+  /** Short promotional video shown beneath the hero. */
+  video?: AppVideo;
   /** Accent colour pulled from each app's own identity. */
   accent: string;
   /** Slug of a sibling app promoted in a banner at the foot of this app's page. */
@@ -470,7 +486,7 @@ export const apps: App[] = [
       'Most readers make you choose: local files or a self-hosted server. OPDSy merges both into a single unified library — the folders on your device sitting alongside Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory, LazyLibrarian and any OPDS 1.2 or 2.0 source, each tagged with its own colour.\n\nThat means you can start with nothing but a folder of files — add it as a local library, or open a book straight from your file manager or share sheet — and add servers later, or never. Continue Reading, favourites and search work across everything at once, whichever source a book came from.\n\nRead EPUB, MOBI, AZW3, FB2 and PDF books, CBZ/CBR comics and manga, and Markdown with Mermaid.js diagrams; listen to audiobooks in M4B, MP3 and more; jump straight to any page or chapter; look a word up in an offline dictionary; highlight passages and bookmark pages; listen to any book with built-in text-to-speech; and download titles for fully offline reading — with no account, no ads and no tracking of any kind.',
     category: 'Books & Reference',
     icon: '/apps/opdsy.png',
-    featureGraphic: '/apps/opdsy-feature.png?v=2',
+    featureGraphic: '/apps/opdsy-feature.png?v=3',
     platforms: ['android', 'ios'],
     accent: '#1f6f8b',
     crossPromo: 'spinely',
@@ -548,6 +564,25 @@ export const apps: App[] = [
       },
       { text: ', and book covers are public-domain literary classics.' },
     ],
+    video: {
+      src: '/video/opdsy-promo.mp4',
+      poster: '/video/opdsy-promo-poster.jpg',
+      captions: '/video/opdsy-promo.en.vtt',
+      title: 'OPDSy in 47 seconds',
+      description:
+        'A short tour of OPDSy: books, comics and audiobooks in one private library, with offline reading, OPDS servers, WebDAV and end-to-end encrypted sync.',
+      uploadDate: '2026-11-06',
+      duration: 'PT47S',
+      credit: [
+        { text: 'Cover art includes ' },
+        { text: 'Pepper&Carrot', href: 'https://www.peppercarrot.com/' },
+        { text: ' by David Revoy (' },
+        { text: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
+        { text: '). Voice based on the ' },
+        { text: 'CSTR VCTK Corpus', href: 'https://datashare.ed.ac.uk/handle/10283/3443' },
+        { text: ', University of Edinburgh (CC BY 4.0).' },
+      ],
+    },
     highlights: [
       {
         title: 'One library, local and self-hosted',
