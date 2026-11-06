@@ -150,10 +150,6 @@
 }
 
 /* Features */
-.video {
-  padding: 4rem 0;
-}
-
 .videoPlayer {
   display: block;
   width: 100%;
@@ -329,14 +325,14 @@
 }
 
 /* Screenshot credit */
-.shotCredit {
-  margin-top: 1.5rem;
+.credits {
+  padding: 0 0 3rem;
   font-size: 0.85rem;
   line-height: 1.5;
   color: var(--muted);
 }
 
-.shotCredit a {
+.credits a {
   color: var(--green-700);
   text-decoration: underline;
 }

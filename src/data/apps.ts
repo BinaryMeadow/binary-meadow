@@ -164,7 +164,6 @@ export interface AppVideo {
   uploadDate: string;
   /** ISO 8601 duration, e.g. "PT47S". */
   duration: string;
-  credit?: CreditPart[];
 }
 
 export interface App {
@@ -195,8 +194,8 @@ export interface App {
   tabletScreenshots?: Screenshot[];
   /** Render the tablet screenshots as portrait captures in a denser grid. */
   tabletPortrait?: boolean;
-  /** Optional attribution shown beneath the screenshots (e.g. third-party artwork). */
-  screenshotsCredit?: CreditPart[];
+  /** Attribution for third-party artwork and media, shown once at the bottom of the page. */
+  credits?: CreditPart[];
   /** Short promotional video shown beneath the hero. */
   video?: AppVideo;
   /** Accent colour pulled from each app's own identity. */
@@ -547,23 +546,6 @@ export const apps: App[] = [
       { src: '/screenshots/opdsy/tablet/7-libraries.jpg', alt: 'OPDSy on a tablet — connected OPDS servers list' },
       { src: '/screenshots/opdsy/tablet/8-sync.jpg', alt: 'OPDSy on a tablet — cross-device sync settings' },
     ],
-    screenshotsCredit: [
-      { text: 'Comic and book artwork shown is for demonstration only. ' },
-      { text: 'Pepper&Carrot', href: 'https://www.peppercarrot.com/' },
-      { text: ' is by ' },
-      { text: 'David Revoy', href: 'https://www.davidrevoy.com/' },
-      { text: ', licensed under ' },
-      {
-        text: 'CC BY 4.0',
-        href: 'https://creativecommons.org/licenses/by/4.0/',
-      },
-      { text: '. Other comic covers are public-domain ' },
-      {
-        text: 'Golden Age comics',
-        href: 'https://digitalcomicmuseum.com/',
-      },
-      { text: ', and book covers are public-domain literary classics.' },
-    ],
     video: {
       src: '/video/opdsy-promo.mp4',
       poster: '/video/opdsy-promo-poster.jpg',
@@ -573,47 +555,19 @@ export const apps: App[] = [
         'A short tour of OPDSy: books, comics and audiobooks in one private library, with offline reading, OPDS servers, WebDAV and end-to-end encrypted sync.',
       uploadDate: '2026-11-06',
       duration: 'PT47S',
-      credit: [
-        { text: 'Cover art includes ' },
-        { text: 'Pepper&Carrot', href: 'https://www.peppercarrot.com/' },
-        { text: ' by David Revoy (' },
-        { text: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
-        { text: '). Voice based on the ' },
-        { text: 'CSTR VCTK Corpus', href: 'https://datashare.ed.ac.uk/handle/10283/3443' },
-        { text: ', University of Edinburgh (CC BY 4.0).' },
-      ],
     },
-    highlights: [
-      {
-        title: 'One library, local and self-hosted',
-        description:
-          'Most readers make you choose. OPDSy merges on-device folders with Komga, Kavita, Ubooquity, Calibre-Web, BookOrbit, Grimmory, LazyLibrarian and any OPDS 1.2 / 2.0 source into a single unified home.',
-      },
-      {
-        title: 'Private by design, zero tracking',
-        description:
-          'No account, no ads, no analytics and no tracking of any kind. Your reading is nobody’s business but yours.',
-      },
-      {
-        title: 'One purchase, nothing held back',
-        description:
-          'Buy it once. No ads, no subscription, no in-app purchases and no pro tier — every feature, sync included, is there from the first launch.',
-      },
-      {
-        title: 'Comics, books and audio',
-        description:
-          'Read comics and manga, ebooks in EPUB, MOBI, AZW3 and FB2, PDFs and Markdown. Listen to audiobooks, or have any book read aloud with text-to-speech.',
-      },
-      {
-        title: 'An offline dictionary',
-        description:
-          'Tap Define on any word for its meaning, examples and synonyms without leaving the page. Dictionaries are downloaded on demand, and every lookup happens on your device.',
-      },
-      {
-        title: 'The successor to Kuboo',
-        description:
-          'A resilient, multi-source reader rebuilt from the ground up for speed, reliability and privacy — and actively maintained.',
-      },
+    credits: [
+      { text: 'Comic and book artwork shown in the video, screenshots and graphics is for demonstration only. ' },
+      { text: 'Pepper&Carrot', href: 'https://www.peppercarrot.com/' },
+      { text: ' is by ' },
+      { text: 'David Revoy', href: 'https://www.davidrevoy.com/' },
+      { text: ', licensed under ' },
+      { text: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
+      { text: '. Other comic covers are public-domain ' },
+      { text: 'Golden Age comics', href: 'https://digitalcomicmuseum.com/' },
+      { text: ', and book covers are public-domain literary classics. The video voice is based on the ' },
+      { text: 'CSTR VCTK Corpus', href: 'https://datashare.ed.ac.uk/handle/10283/3443' },
+      { text: ', University of Edinburgh (CC BY 4.0).' },
     ],
     features: [
       {

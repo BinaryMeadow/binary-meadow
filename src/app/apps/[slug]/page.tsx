@@ -181,10 +181,11 @@ export default async function AppPage({
         </div>
       </section>
 
-      {app.video && (
+      {/* Video, or highlights when there is none */}
+      {app.video ? (
         <section
           id="video"
-          className={`${styles.video} ${styles.anchorSection}`}
+          className={`${styles.highlights} ${styles.anchorSection}`}
           style={{ ['--app-accent' as string]: app.accent }}
         >
           <div className="container">
@@ -210,40 +211,33 @@ export default async function AppPage({
                 src={app.video.captions}
                 srcLang="en"
                 label="English"
-                default
               />
             </video>
-            {app.video.credit && (
-              <p className={styles.shotCredit}>
-                <Credit parts={app.video.credit} />
-              </p>
-            )}
+          </div>
+        </section>
+      ) : (
+        <section id="highlights" className={`${styles.highlights} ${styles.anchorSection}`}>
+          <div className="container">
+            <span className="eyebrow">Why {app.name}</span>
+            <h2 className="section-title">
+              <a href="#highlights" className={styles.anchorLink}>
+                Highlights
+              </a>
+            </h2>
+            <div className={styles.features}>
+              {(app.highlights ?? app.features).map((f) => (
+                <div key={f.title} className={styles.feature}>
+                  <h3 className={styles.featureTitle}>{f.title}</h3>
+                  <p className={styles.featureText}>{f.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
 
-      {/* Highlights */}
-      <section id="highlights" className={`${styles.highlights} ${styles.anchorSection}`}>
-        <div className="container">
-          <span className="eyebrow">Why {app.name}</span>
-          <h2 className="section-title">
-            <a href="#highlights" className={styles.anchorLink}>
-              Highlights
-            </a>
-          </h2>
-          <div className={styles.features}>
-            {(app.highlights ?? app.features).map((f) => (
-              <div key={f.title} className={styles.feature}>
-                <h3 className={styles.featureTitle}>{f.title}</h3>
-                <p className={styles.featureText}>{f.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Features */}
-      {app.highlights && (
+      {(app.highlights || app.video) && (
         <section
           id="features"
           className={`section ${styles.anchorSection}`}
@@ -339,11 +333,6 @@ export default async function AppPage({
                 ))}
               </div>
             </>
-          )}
-          {app.screenshotsCredit && (
-            <p className={styles.shotCredit}>
-              <Credit parts={app.screenshotsCredit} />
-            </p>
           )}
         </div>
       </section>
@@ -524,6 +513,16 @@ export default async function AppPage({
                 Check it out →
               </span>
             </Link>
+          </div>
+        </section>
+      )}
+
+      {app.credits && (
+        <section className={styles.credits} aria-label="Credits">
+          <div className="container">
+            <p>
+              <Credit parts={app.credits} />
+            </p>
           </div>
         </section>
       )}
