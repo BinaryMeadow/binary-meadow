@@ -1176,6 +1176,11 @@ export const apps: App[] = [
           'Sync is optional. If you turn it on, your library, favourites, reading progress, highlights and bookmarks are encrypted on your device with a passphrase-derived key and stored in a hidden, app-private folder of your own Google Drive. Only a device holding your passphrase can read it — neither Binary Meadow nor Google can.',
       },
       {
+        question: 'How do I remove my sync data from Google Drive and start again?',
+        answer:
+          'Do this if you forgot your sync passphrase, or if a new device says the passphrase does not match. The sync file is in a hidden app folder, so you will not see it in My Drive. First, on every device that syncs, open Settings, then Sync, tap Disconnect and choose “Disconnect & forget passphrase”. Do this before you delete anything, because a device that is still connected uploads the old file again. Next, open Google Drive in a web browser, go to Settings, then Manage apps, find OPDSy, open Options and choose “Delete hidden app data”. Then set up sync again on the device that has your library: connect Google Drive, choose a new passphrase and wait for the first sync to finish. Last, connect each other device with the same passphrase. Your books, favourites and reading progress stay on each device and are merged again when they sync. A passphrase must match exactly, including any space at the start or end.',
+      },
+      {
         question: 'Does the dictionary send my lookups anywhere?',
         answer:
           'No. Dictionaries are downloaded once from Settings and then searched entirely on your device, so a word you look up never leaves your phone — and lookups keep working with no connection at all. Each dictionary file is checked against a fingerprint built into the app before it is installed, so a modified or substituted file is refused.',
