@@ -19,7 +19,8 @@
 }
 
 .badge[data-platform='macos'],
-.badge[data-platform='windows'] {
+.badge[data-platform='windows'],
+.badge[data-platform='docker'] {
   background: #e6f6fa;
   color: #0d6878;
   border-color: #bfe7ef;

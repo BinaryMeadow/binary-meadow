@@ -1,4 +1,4 @@
-export type Platform = 'android' | 'ios' | 'macos' | 'windows';
+export type Platform = 'android' | 'ios' | 'macos' | 'windows' | 'docker';
 
 export interface DownloadLink {
   label: string;
@@ -128,6 +128,20 @@ export interface ServerStructures {
   note: string;
 }
 
+export interface GettingStartedStep {
+  title: string;
+  text: string;
+  code?: string;
+  codeLabel?: string;
+  after?: string;
+  note?: string;
+}
+
+export interface GettingStarted {
+  lead: string;
+  steps: GettingStartedStep[];
+}
+
 export interface FaqItem {
   question: string;
   answer: string;
@@ -206,6 +220,7 @@ export interface App {
   comparison?: Comparison;
   /** Optional walk-through of what each supported server publishes. */
   serverStructures?: ServerStructures;
+  gettingStarted?: GettingStarted;
   /** Frequently asked questions, also emitted as FAQPage structured data. */
   faqs?: FaqItem[];
   /** App-specific privacy policy, linkable from app stores. */
@@ -213,268 +228,6 @@ export interface App {
 }
 
 export const apps: App[] = [
-  {
-    slug: 'jannah-builder',
-    name: 'Jannah Builder',
-    tagline: 'Watch your spiritual journey grow.',
-    summary:
-      'A spiritually-sensitive prayer tracker that visualises consistent worship as a living, growing pixel-art landscape.',
-    description:
-      'Jannah Builder is a calm, spiritually-sensitive prayer tracker that turns your five daily prayers into a beautiful, growing pixel-art world inspired by Jannah (Paradise).\n\nIt favours calm reflection over gamification and gentle encouragement over guilt. Trees, flowers, buildings and roaming animals appear as you stay consistent — and when a day is missed, only one element is gently affected, so older progress is always preserved.\n\nThere are no streaks to break, no leaderboards and no comparisons. Everything works fully offline with no account required, and your prayer logs never leave your device.',
-    category: 'Lifestyle / Wellbeing',
-    icon: '/apps/jannah-builder.png',
-    featureGraphic: '/apps/jannah-builder-feature.png',
-    platforms: ['android'],
-    accent: '#2d7a5f',
-    repository: 'https://github.com/binarymeadow/jannah-builder',
-    downloads: [
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.jannahbuilder',
-        platform: 'android',
-      },
-      {
-        label: 'Download APK',
-        href: 'https://github.com/binarymeadow/jannah-builder/releases',
-        platform: 'android',
-      },
-    ],
-    techStack: ['React Native', 'Expo SDK 54', 'TypeScript', 'Expo Router'],
-    highlights: [
-      {
-        title: 'Gentle, never guilt',
-        description:
-          'No streaks, no leaderboards, no comparisons — just calm encouragement. A missed day affects only one element, never your whole garden.',
-      },
-      {
-        title: 'A living Jannah map',
-        description:
-          'Watch a beautiful pixel-art world grow with your worship — trees, flowers, buildings and roaming wildlife.',
-      },
-      {
-        title: 'Private & fully offline',
-        description:
-          'No account, no analytics and no tracking of any kind. Every prayer log stays on your device.',
-      },
-    ],
-    features: [
-      {
-        title: 'Five daily prayers',
-        description:
-          'Log Fajr, Dhuhr, Asr, Maghrib and Isha with subtle haptics and a gentle chime when the day is complete.',
-      },
-      {
-        title: 'A living Jannah map',
-        description:
-          'A top-down pixel-art world where trees, multi-stage flowers, buildings and roaming animals appear as you progress.',
-      },
-      {
-        title: 'Gentle decay',
-        description:
-          'Missed days affect one element at a time — newest first — so older progress is always preserved.',
-      },
-      {
-        title: 'Qur’an & dhikr logging',
-        description:
-          'Simple daily yes/no logging enriches the ambience with golden light and floating particles, and occasionally grows lasting barakah flowers.',
-      },
-      {
-        title: 'Roaming wildlife',
-        description:
-          'Animated birds, rabbits, deer and squirrels bring your garden quietly to life.',
-      },
-      {
-        title: 'Seasonal moments',
-        description:
-          'Beautiful temporary items appear during long periods of consistency, then gently pass.',
-      },
-      {
-        title: 'A journey, not a competition',
-        description:
-          'Statistics are presented as a personal journey — no streaks displayed, no leaderboards, no comparisons.',
-      },
-      {
-        title: 'Fully offline, no account',
-        description:
-          'All data stays on your device and the app works without sign-in — nothing is sent to Binary Meadow.',
-      },
-    ],
-    screenshots: [
-      { src: '/screenshots/jannah-builder/1-prayer-screenhot.jpg', alt: 'Jannah Builder prayer logging screen' },
-      { src: '/screenshots/jannah-builder/2-jannah-map.jpg', alt: 'Jannah Builder living Jannah map' },
-      { src: '/screenshots/jannah-builder/3-stats-screen.jpg', alt: 'Jannah Builder statistics screen' },
-      { src: '/screenshots/jannah-builder/4all-time-stats-scren.jpg', alt: 'Jannah Builder all-time statistics screen' },
-      { src: '/screenshots/jannah-builder/5-settings.jpg', alt: 'Jannah Builder settings screen' },
-    ],
-    privacy: {
-      updated: '25 June 2026',
-      summary:
-        'Jannah Builder is local-first. Your prayer logs and progress stay on your device and are never sent to us.',
-      collectsPersonalData: false,
-      dataHandling: [
-        {
-          title: 'Prayer & worship logs',
-          description:
-            'Your daily prayer entries, optional Qur’an and dhikr logs, and the state of your Jannah map are stored locally on your device. They are not transmitted to Binary Meadow or any third party.',
-        },
-        {
-          title: 'No account required',
-          description:
-            'The app works without sign-in. We do not ask for your name, email, phone number, or location, and we do not build a profile of you.',
-        },
-        {
-          title: 'No analytics or tracking',
-          description:
-            'Jannah Builder does not embed advertising SDKs or third-party analytics, and does not track your activity across other apps or websites.',
-        },
-      ],
-      thirdParties: [
-        'Google Play — distributes the app and processes installs under its own privacy policy.',
-        'GitHub Releases — hosts the downloadable APK under GitHub’s privacy policy.',
-      ],
-      childrenNote:
-        'Jannah Builder is a family-friendly app suitable for all ages. Because it is local-first and collects no personal data, it can be used safely by children as well as adults.',
-    },
-  },
-  {
-    slug: 'task-monster',
-    name: 'Task Monster',
-    tagline: 'Chores and routines that feed a friendly monster.',
-    summary:
-      'A gamified to-do list for families. Every chore, routine or task that gets done feeds a friendly monster that grows, levels up and evolves.',
-    description:
-      'Task Monster turns chores, homework and daily routines into a game the whole family will love. Every task your child finishes becomes food for their very own monster, so brushing teeth, tidying the bedroom or finishing reading practice feels like fun rather than a fight.\n\nTick off a task and it drops into the feeder as a tasty bubble. Tap feed and watch the monster chomp it down, level up and slowly evolve. The more that gets done, the happier and healthier it becomes.\n\nRaise one of twelve lively creatures, each with its own look, voice and silly tricks, give it a name and pick its colour. There are no ads, no in-app purchases, no chat and no account, and everything stays on your device.',
-    category: 'Productivity',
-    icon: '/apps/task-monster.png',
-    featureGraphic: '/apps/task-monster-feature.png',
-    platforms: ['android'],
-    accent: '#FF6B9D',
-    downloads: [
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.taskmonsters',
-        platform: 'android',
-      },
-    ],
-    techStack: ['React Native', 'Expo SDK 57', 'TypeScript', 'Expo Router', 'React Native SVG', 'Reanimated'],
-    highlights: [
-      {
-        title: 'Finishing tasks feeds your monster',
-        description:
-          'Every completed task drops into the feeder as a tasty bubble. Feed it to your monster to level up, and watch it grow happier and healthier the more you get done.',
-      },
-      {
-        title: 'Twelve creatures that come to life',
-        description:
-          'Raise one of twelve monster species, each with its own look, voice and personality. They blink, wobble, dance, giggle, sneeze and evolve through levels as you stay consistent.',
-      },
-      {
-        title: 'Safe and private for families',
-        description:
-          'No ads, no in-app purchases, no chat, no account and no tracking of any kind. Everything works offline and stays on your device.',
-      },
-    ],
-    features: [
-      {
-        title: 'Chores kids want to do',
-        description:
-          'Completing tasks feeds and grows the monster, so ticking off chores and routines is genuinely rewarding.',
-      },
-      {
-        title: 'Twelve monster species',
-        description:
-          'Raise Blip, Cyclo, Trio, Fuzz, Finn, Nib, Boo, Hopper, Sprig, Pinch, Squidge or Prickle, and switch whenever you like.',
-      },
-      {
-        title: 'Living animations',
-        description:
-          'Monsters blink, bounce, chomp their food, do backflips and silly tricks, and each one has its own voice and sound effects.',
-      },
-      {
-        title: 'Evolving levels',
-        description:
-          'Keep feeding your monster to level it up and watch it evolve as your progress builds.',
-      },
-      {
-        title: 'Routines as colourful groups',
-        description:
-          'Set up morning, after-school and bedtime routines, or anything else, as tidy colour-coded groups.',
-      },
-      {
-        title: 'Subtasks, due dates & reminders',
-        description:
-          'Break bigger tasks down, set a due date and time, and get a gentle reminder before anything is due.',
-      },
-      {
-        title: 'Swipe to feed',
-        description:
-          'Tick or swipe a task to send it to the feeder, with a quick undo if a tap was a mistake.',
-      },
-      {
-        title: 'Health, happiness & XP',
-        description:
-          'Simple stats reflect how consistently you are getting things done.',
-      },
-      {
-        title: 'Make it yours',
-        description:
-          'Give your monster a name, choose from eight accent colours, and switch sound effects and haptics on or off.',
-      },
-      {
-        title: 'Fully offline, no account',
-        description:
-          'Everything works without sign-in and stays on your device. No ads and no in-app purchases.',
-      },
-    ],
-    screenshots: [
-      { src: '/screenshots/task-monster/1-tasks.jpg', alt: 'Task Monster task list with morning, after-school and bedtime routines' },
-      { src: '/screenshots/task-monster/2-monster.jpg', alt: 'Task Monster monster screen with feed button and stats' },
-      { src: '/screenshots/task-monster/3-feed.jpg', alt: 'Task Monster sending a finished task to the feeder' },
-      { src: '/screenshots/task-monster/4-characters.jpg', alt: 'Task Monster character picker showing twelve monster species' },
-      { src: '/screenshots/task-monster/5-new-task.jpg', alt: 'Task Monster new task form with groups, due date and reminder' },
-    ],
-    tabletPortrait: true,
-    tabletScreenshots: [
-      { src: '/screenshots/task-monster/tablet/1-tasks.jpg', alt: 'Task Monster on a tablet: morning, after-school and bedtime routines', width: 1152, height: 2048 },
-      { src: '/screenshots/task-monster/tablet/2-monster.jpg', alt: 'Task Monster on a tablet: monster screen with feed button and stats', width: 1152, height: 2048 },
-      { src: '/screenshots/task-monster/tablet/3-settings.jpg', alt: 'Task Monster on a tablet: settings screen', width: 1152, height: 2048 },
-      { src: '/screenshots/task-monster/tablet/4-new-task.jpg', alt: 'Task Monster on a tablet: new task form with groups, due date and reminder', width: 1152, height: 2048 },
-    ],
-    privacy: {
-      updated: '12 September 2026',
-      summary:
-        'Task Monster is local-first. Your tasks and your monster stay on your device and are never sent to us.',
-      collectsPersonalData: false,
-      dataHandling: [
-        {
-          title: 'Tasks & monster progress',
-          description:
-            'Your tasks, groups and your monster’s state are stored locally on your device. They are not transmitted to Binary Meadow or any third party.',
-        },
-        {
-          title: 'No account required',
-          description:
-            'The app works without sign-in. We do not ask for your name, email, phone number, or location, and we do not build a profile of you.',
-        },
-        {
-          title: 'Optional Google Drive backup',
-          description:
-            'If you choose to connect Google Drive, a backup of your tasks is stored in your own Drive account so you can sync across devices. This only happens when you connect it, and nothing is sent to us.',
-        },
-        {
-          title: 'No analytics or tracking',
-          description:
-            'Task Monster does not embed advertising SDKs or third-party analytics, and does not track your activity across other apps or websites.',
-        },
-      ],
-      thirdParties: [
-        'Google Play — distributes the app and processes installs under its own privacy policy.',
-        'Google Drive — stores your optional backup in your own account, only if you connect it, under Google’s privacy policy.',
-      ],
-      childrenNote:
-        'Task Monster is a family-friendly app suitable for all ages. Because it is local-first and collects no personal data, it can be used safely by children as well as adults.',
-    },
-  },
   {
     slug: 'opdsy',
     name: 'OPDSy',
@@ -1236,6 +989,556 @@ export const apps: App[] = [
       ],
       childrenNote:
         'OPDSy is suitable for all ages and can be used in a family or children’s setting. As it displays only the files and servers you configure, the person setting those up controls what is available — so we recommend that a parent or guardian chooses appropriate folders and sources for younger users.',
+    },
+  },
+  {
+    slug: 'opdsy-server',
+    name: 'OPDSy Server',
+    tagline: 'Your books, comics and audiobooks, served your way.',
+    summary:
+      'A free, self-hosted OPDS server for ebooks, comics and audiobooks, with true OPDS 2.0 and reading progress that follows you between devices. Runs in Docker on your NAS or home server.',
+    description:
+      'OPDSy Server turns the folders of books, comics and audiobooks on your NAS or home server into a private online library. Point any OPDS reading app at it, or open the web library in a browser, and read from anywhere you can reach your server.\n\nIt speaks both OPDS 2.0 and OPDS 1.2 from one address, so new and older apps alike can browse, search and download. Apps that support OPDS Progression, such as OPDSy, save your place on the server, so you can pick up on another device exactly where you stopped.\n\nKeep your folders exactly as they are, let the server arrange each library by author and series, or mix the two. Add users with their own access to each library, fill in missing details from online catalogues, and gather books into shared collections.\n\nOPDSy Server is free and always will be. It is closed source for now, and our aim is to open source it soon.',
+    category: 'Books & Reference',
+    icon: '/apps/opdsy.png',
+    platforms: ['docker'],
+    accent: '#1f6f8b',
+    crossPromo: 'opdsy',
+    downloads: [
+      {
+        label: 'Get the Docker image',
+        href: 'https://github.com/orgs/BinaryMeadow/packages/container/package/opdsy-server',
+        platform: 'docker',
+      },
+    ],
+    pricing: {
+      label: 'Free forever · No ads · No account',
+      detail:
+        'OPDSy Server is free, and it will stay free. There is no paid tier, no subscription, no account to create and no ads. It is closed source for now, and our aim is to open source it soon.',
+      free: true,
+    },
+    techStack: ['.NET 10', 'ASP.NET Core', 'SQLite', 'React', 'TypeScript', 'Docker'],
+    screenshots: [
+      { src: '/screenshots/opdsy-server/01-web-library.jpg', featured: true, alt: 'OPDSy Server web library home page with rows of recently added book covers' },
+      { src: '/screenshots/opdsy-server/02-browse.jpg', featured: true, alt: 'Browsing every book in the web library as a cover grid, with filters for reading status, format, author, series and more' },
+      { src: '/screenshots/opdsy-server/03-book.jpg', featured: true, alt: 'Book page for Great Expectations with read, favourite, edit and fix match buttons and the book description' },
+      { src: '/screenshots/opdsy-server/04-reader.jpg', alt: 'Reading Great Expectations in the browser, with contents, highlights, bookmarks, read aloud and text size controls' },
+      { src: '/screenshots/opdsy-server/05-collections.jpg', alt: 'Collections in the web library: Adventure, Book club and Gothic tales' },
+      { src: '/screenshots/opdsy-server/06-dashboard.jpg', alt: 'Admin dashboard showing libraries, publications, users, recent scans, quick actions and server health' },
+      { src: '/screenshots/opdsy-server/07-organisation.jpg', alt: 'Library settings with the three organisation modes: leave files alone, managed and hybrid, and a preview of the result' },
+      { src: '/screenshots/opdsy-server/08-users.jpg', alt: 'Users screen listing an administrator and three family reader accounts' },
+      { src: '/screenshots/opdsy-server/09-connect.jpg', alt: 'Settings screen showing the single OPDS 2.0 and OPDS 1.2 addresses to add to a reading app' },
+    ],
+    credits: [
+      { text: 'Books shown in the screenshots are public-domain classics in editions from ' },
+      { text: 'Standard Ebooks', href: 'https://standardebooks.org/' },
+      { text: ', whose covers use public-domain paintings and are dedicated to the public domain (' },
+      { text: 'CC0', href: 'https://creativecommons.org/publicdomain/zero/1.0/' },
+      { text: '). User names and collections are examples.' },
+    ],
+    highlights: [
+      {
+        title: 'True OPDS 2.0, with reading progress',
+        description:
+          'A full OPDS 2.0 catalogue, not an add-on to an older one, with search, facets, authentication and OPDS Progression. Your reading position is stored on the server, so every device and app that supports it opens the book where you left off. OPDS 1.2 is served too, from the same address.',
+      },
+      {
+        title: 'Ebooks, comics and audiobooks',
+        description:
+          'One server for everything you read and listen to: EPUB, PDF, MOBI, AZW3 and FB2 books, CBZ, CBR, CB7 and CBT comics with ComicInfo.xml, and MP3 and M4B audiobooks. Comics stream page by page, so readers start without downloading the whole archive.',
+      },
+      {
+        title: 'Free, and it will stay free',
+        description:
+          'No paid tier, no subscription, no account and no ads. Every feature is included. It is closed source for now, and our aim is to open source it soon.',
+      },
+      {
+        title: 'Works with any OPDS app',
+        description:
+          'Built to the OPDS standards rather than for one app, so it works with OPDSy, KOReader, Thorium Reader, Panels, Moon+ Reader, PocketBook and any other app that reads OPDS 1.2 or 2.0. The catalogue is checked against an automated OPDS conformance suite.',
+      },
+      {
+        title: 'Folders, managed libraries, or both',
+        description:
+          'Each library chooses how it is arranged. Keep your own folder structure, let the server arrange books by author, series or any template you like, or mix the two with rules. Your folders can even stay read-only.',
+      },
+      {
+        title: 'Made for OPDSy',
+        description:
+          'Fully compatible with the OPDSy app. Reading progress, favourites, highlights, notes and bookmarks sync with the server, so they follow you between your phone, your tablet and the web library.',
+      },
+    ],
+    features: [
+      {
+        title: 'One address for every library',
+        description:
+          'Books, comics and audiobooks can live in separate libraries, each with its own folder and type, and one catalogue address covers every library a reader is allowed to open.',
+      },
+      {
+        title: 'Continue reading everywhere',
+        description:
+          'Progress saved with OPDS Progression puts a book in the Continue reading group of the catalogue, and becomes the resume page for comics in OPDS 1.2 apps that support page streaming.',
+      },
+      {
+        title: 'A web library and reader',
+        description:
+          'Browse every book you can read in a browser, as a cover grid or a table, with search, filters and sorting. Read EPUB, PDF and comics in the browser, and have books read aloud.',
+      },
+      {
+        title: 'Your folders, or a tidy library',
+        description:
+          'Filesystem mode publishes your folders exactly as they are. Managed mode arranges books with a template such as author, series and title. Hybrid mode keeps your folders and regroups the ones you choose.',
+      },
+      {
+        title: 'Uploads and an incoming folder',
+        description:
+          'Drag files into a library from the admin page, or drop them into an incoming folder on your NAS. Each book is checked and filed in the right place, and an existing file is never overwritten.',
+      },
+      {
+        title: 'Users and access',
+        description:
+          'Give each person their own account and choose which libraries they can open. A reader only ever sees the books they are allowed to read, in feeds, search and collections alike.',
+      },
+      {
+        title: 'Online metadata, when you want it',
+        description:
+          'Fill in missing titles, authors, series, descriptions and covers from Open Library, Google Books, Apple Books, Hardcover, ComicVine and Audnexus. It is off until you turn it on, every change can be rolled back, and locked fields are left alone.',
+      },
+      {
+        title: 'Collections',
+        description:
+          'Make shared shelves such as “Book club” or “Kids’ favourites”, with books from any library in the order you choose. Readers see them in their reading app and in the web library.',
+      },
+      {
+        title: 'Find duplicates',
+        description:
+          'See exact copies and likely duplicates, such as an EPUB and a PDF of the same book, across all your libraries, and remove the copies you do not need.',
+      },
+      {
+        title: 'Dictionary and natural voices',
+        description:
+          'Download an English dictionary so readers can look up words, and natural-sounding voices for read-aloud. Both run on your server, so nothing about what is being read is sent anywhere.',
+      },
+      {
+        title: 'Looks after itself',
+        description:
+          'The database is backed up every day, folders are watched for new books, and the health page shows your libraries, free disk space and version. The admin page tells you when an update is available.',
+      },
+      {
+        title: 'Runs on your NAS',
+        description:
+          'One Docker image for Intel, AMD and ARM, so it runs on a Synology, QNAP or Unraid NAS, a Raspberry Pi or any computer with Docker. It runs as a non-root user and is light enough to sit quietly alongside everything else on your NAS.',
+      },
+    ],
+    gettingStarted: {
+      lead: 'From an empty folder to reading on your phone in about five minutes. This guide uses plain HTTP on your home network.',
+      steps: [
+        {
+          title: 'Install Docker',
+          text: 'You need Docker with Docker Compose. On a Synology NAS, install Container Manager from Package Center. On a QNAP NAS, use Container Station. On a computer, install Docker Desktop or Docker Engine. Running docker compose version should print a version.',
+        },
+        {
+          title: 'Create a Compose file',
+          text: 'Make a folder for the server, for example opdsy-server, and save this file in it as docker-compose.yml.',
+          codeLabel: 'docker-compose.yml',
+          code: `services:
+  opdsy-server:
+    image: ghcr.io/binarymeadow/opdsy-server:latest
+    container_name: opdsy-server
+    ports:
+      - "8080:8080"
+    volumes:
+      - opdsy-config:/config
+      - /volume1/Books:/books
+    environment:
+      TZ: Europe/London
+      Opdsy__Security__AllowInsecureLocalHttp: "true"
+    restart: unless-stopped
+
+volumes:
+  opdsy-config:`,
+          after:
+            'Change /volume1/Books to the folder that holds your books. The folder must be readable and writable by user 1654, the user the server runs as, so it can save metadata, take uploads and file books from incoming folders. The opdsy-config volume keeps your database and settings. The AllowInsecureLocalHttp setting lets apps on your home network sign in over plain HTTP.',
+          note: 'Over plain HTTP the server only accepts passwords from home network addresses, so to read away from home, put it behind a reverse proxy with HTTPS and remove the AllowInsecureLocalHttp line.',
+        },
+        {
+          title: 'Start the server',
+          text: 'In a terminal, go to the folder and run this command. On a Synology NAS you can instead open Container Manager, choose Project, then Create, pick the folder and paste the file.',
+          code: 'docker compose up -d',
+          after:
+            'The first start downloads the image. Then go to http://<your server address>:8080/health/ready in a browser. It shows a success response when the server is ready. To use another port, change the first 8080 in the ports line.',
+        },
+        {
+          title: 'Run the set-up wizard',
+          text: 'Open http://<your server address>:8080/admin in a browser. There are no default passwords. The wizard asks you to create an administrator with a password of at least 12 characters, name your first library and choose its folder inside /books, and choose how files are organised. Pick Leave files alone to keep your folders exactly as they are. The first scan then starts, and a few thousand books take a minute or two.',
+        },
+        {
+          title: 'Connect a reading app',
+          text: 'In the admin pages, open Users, select your user name and create an app password for each device. Copy it straight away, because it is shown only once. In your reading app, add an OPDS catalogue with your user name, the app password and one of these addresses.',
+          code: `OPDS 2.0 (OPDSy, Thorium Reader):  http://<your server address>:8080/opds/v2
+OPDS 1.2 (KOReader and older apps): http://<your server address>:8080/opds/v1.2`,
+          after:
+            'Settings, under Connect a reading app, shows both addresses with copy buttons.',
+        },
+        {
+          title: 'Keep it up to date',
+          text: 'To update to the latest version, go to the folder and run these commands.',
+          code: `docker compose pull
+docker compose up -d`,
+          after:
+            'Your books stay in your own folder and your database and settings stay in the opdsy-config volume, so nothing is lost when the container is replaced.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is an OPDS server?',
+        answer:
+          'OPDS is an open standard for sharing a catalogue of books. An OPDS server publishes your books so that reading apps can browse, search and download them over your network or the internet. OPDSy Server is one, for books, comics and audiobooks.',
+      },
+      {
+        question: 'Is OPDSy Server really free?',
+        answer:
+          'Yes. There is no paid tier, no subscription, no account and no ads, and every feature is included. It will stay free.',
+      },
+      {
+        question: 'Is it open source?',
+        answer:
+          'Not yet. OPDSy Server is closed source for now, and our aim is to open source it soon. The Docker image is free for anyone to use in the meantime.',
+      },
+      {
+        question: 'Which reading apps can I use?',
+        answer:
+          'Any app that reads OPDS 1.2 or OPDS 2.0. Use the OPDS 2.0 address with apps such as OPDSy and Thorium Reader, and the OPDS 1.2 address with apps such as KOReader, Panels, Moon+ Reader and PocketBook e-readers. Both addresses are shown on the admin page.',
+      },
+      {
+        question: 'Do I need the OPDSy app?',
+        answer:
+          'No, any OPDS app works. OPDSy is fully compatible, though: it reads OPDS 2.0, signs in through the server, streams comics, plays audiobooks, and syncs reading progress, favourites, highlights and bookmarks with the server.',
+      },
+      {
+        question: 'Will it move or change my files?',
+        answer:
+          'Not unless you ask it to. In filesystem and hybrid mode nothing is ever written to your library folders, which can be mounted read-only. In managed mode, only books you upload or drop into an incoming folder are moved. Online metadata is written into a file only if you choose to.',
+      },
+      {
+        question: 'What do I need to run it?',
+        answer:
+          'Docker, and a folder of books. That can be a NAS such as a Synology, QNAP or Unraid box, a Raspberry Pi, or any Linux, Windows or macOS computer with Docker. The image is built for both Intel and AMD (amd64) and ARM (arm64) processors.',
+      },
+      {
+        question: 'Can I read away from home?',
+        answer:
+          'Yes, wherever your server is reachable. On your home network a local address works over plain HTTP. Away from home, put the server behind a reverse proxy with HTTPS, because over plain HTTP it only accepts passwords from home network addresses.',
+      },
+      {
+        question: 'Does it send any data to Binary Meadow?',
+        answer:
+          'No. There is no telemetry and no account. The server only contacts the internet to check for updates, which you can turn off, and to look up metadata, download a dictionary or download voices when an administrator asks it to.',
+      },
+    ],
+    privacy: {
+      updated: '24 November 2026',
+      summary:
+        'OPDSy Server runs on your own hardware and keeps your library, accounts and reading progress there. It has no Binary Meadow account and no telemetry, and it only contacts the internet for update checks and for downloads and lookups an administrator turns on.',
+      collectsPersonalData: false,
+      dataHandling: [
+        {
+          title: 'Your library',
+          description:
+            'Your books, comics and audiobooks stay on your server. Covers, thumbnails and the catalogue database are stored in the server’s own configuration folder. Binary Meadow has no access to any of it.',
+        },
+        {
+          title: 'Accounts and reading progress',
+          description:
+            'User accounts, passwords, reading progress, favourites, highlights and bookmarks are stored in the server’s database on your hardware. Passwords are stored as salted hashes. None of this is sent to Binary Meadow.',
+        },
+        {
+          title: 'Update checks',
+          description:
+            'The server checks the release feed for a newer version. The request sends no cookies, credentials or details about your server, and you can turn it off, after which the server makes no outbound request of its own.',
+        },
+        {
+          title: 'Online metadata (optional)',
+          description:
+            'Online metadata is off until an administrator turns it on. When it is on, the title, author or ISBN of a book being looked up is sent to the catalogues you enable, using your own API keys where they need one.',
+        },
+        {
+          title: 'No analytics or tracking',
+          description:
+            'OPDSy Server contains no analytics, advertising or telemetry, and Binary Meadow cannot see who uses your server or what they read.',
+        },
+      ],
+      thirdParties: [
+        'GitHub: hosts the Docker image, the release feed used for update checks, and the natural voices an administrator can download.',
+        'Binary Meadow website: hosts the dictionary an administrator can download. The download is a single file and sends nothing about your library.',
+        'Online metadata providers (Open Library, Google Books, Apple Books, Hardcover, ComicVine and Audnexus): contacted only if an administrator turns them on, under their own policies.',
+        'The reading apps you connect: they talk directly to your server, under their own policies.',
+      ],
+      childrenNote:
+        'OPDSy Server can be used in a family setting. Each reader only sees the libraries an administrator gives them access to, so a parent or guardian can give children their own account with only suitable libraries.',
+    },
+  },
+  {
+    slug: 'jannah-builder',
+    name: 'Jannah Builder',
+    tagline: 'Watch your spiritual journey grow.',
+    summary:
+      'A spiritually-sensitive prayer tracker that visualises consistent worship as a living, growing pixel-art landscape.',
+    description:
+      'Jannah Builder is a calm, spiritually-sensitive prayer tracker that turns your five daily prayers into a beautiful, growing pixel-art world inspired by Jannah (Paradise).\n\nIt favours calm reflection over gamification and gentle encouragement over guilt. Trees, flowers, buildings and roaming animals appear as you stay consistent — and when a day is missed, only one element is gently affected, so older progress is always preserved.\n\nThere are no streaks to break, no leaderboards and no comparisons. Everything works fully offline with no account required, and your prayer logs never leave your device.',
+    category: 'Lifestyle / Wellbeing',
+    icon: '/apps/jannah-builder.png',
+    featureGraphic: '/apps/jannah-builder-feature.png',
+    platforms: ['android'],
+    accent: '#2d7a5f',
+    repository: 'https://github.com/binarymeadow/jannah-builder',
+    downloads: [
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.jannahbuilder',
+        platform: 'android',
+      },
+      {
+        label: 'Download APK',
+        href: 'https://github.com/binarymeadow/jannah-builder/releases',
+        platform: 'android',
+      },
+    ],
+    techStack: ['React Native', 'Expo SDK 54', 'TypeScript', 'Expo Router'],
+    highlights: [
+      {
+        title: 'Gentle, never guilt',
+        description:
+          'No streaks, no leaderboards, no comparisons — just calm encouragement. A missed day affects only one element, never your whole garden.',
+      },
+      {
+        title: 'A living Jannah map',
+        description:
+          'Watch a beautiful pixel-art world grow with your worship — trees, flowers, buildings and roaming wildlife.',
+      },
+      {
+        title: 'Private & fully offline',
+        description:
+          'No account, no analytics and no tracking of any kind. Every prayer log stays on your device.',
+      },
+    ],
+    features: [
+      {
+        title: 'Five daily prayers',
+        description:
+          'Log Fajr, Dhuhr, Asr, Maghrib and Isha with subtle haptics and a gentle chime when the day is complete.',
+      },
+      {
+        title: 'A living Jannah map',
+        description:
+          'A top-down pixel-art world where trees, multi-stage flowers, buildings and roaming animals appear as you progress.',
+      },
+      {
+        title: 'Gentle decay',
+        description:
+          'Missed days affect one element at a time — newest first — so older progress is always preserved.',
+      },
+      {
+        title: 'Qur’an & dhikr logging',
+        description:
+          'Simple daily yes/no logging enriches the ambience with golden light and floating particles, and occasionally grows lasting barakah flowers.',
+      },
+      {
+        title: 'Roaming wildlife',
+        description:
+          'Animated birds, rabbits, deer and squirrels bring your garden quietly to life.',
+      },
+      {
+        title: 'Seasonal moments',
+        description:
+          'Beautiful temporary items appear during long periods of consistency, then gently pass.',
+      },
+      {
+        title: 'A journey, not a competition',
+        description:
+          'Statistics are presented as a personal journey — no streaks displayed, no leaderboards, no comparisons.',
+      },
+      {
+        title: 'Fully offline, no account',
+        description:
+          'All data stays on your device and the app works without sign-in — nothing is sent to Binary Meadow.',
+      },
+    ],
+    screenshots: [
+      { src: '/screenshots/jannah-builder/1-prayer-screenhot.jpg', alt: 'Jannah Builder prayer logging screen' },
+      { src: '/screenshots/jannah-builder/2-jannah-map.jpg', alt: 'Jannah Builder living Jannah map' },
+      { src: '/screenshots/jannah-builder/3-stats-screen.jpg', alt: 'Jannah Builder statistics screen' },
+      { src: '/screenshots/jannah-builder/4all-time-stats-scren.jpg', alt: 'Jannah Builder all-time statistics screen' },
+      { src: '/screenshots/jannah-builder/5-settings.jpg', alt: 'Jannah Builder settings screen' },
+    ],
+    privacy: {
+      updated: '25 June 2026',
+      summary:
+        'Jannah Builder is local-first. Your prayer logs and progress stay on your device and are never sent to us.',
+      collectsPersonalData: false,
+      dataHandling: [
+        {
+          title: 'Prayer & worship logs',
+          description:
+            'Your daily prayer entries, optional Qur’an and dhikr logs, and the state of your Jannah map are stored locally on your device. They are not transmitted to Binary Meadow or any third party.',
+        },
+        {
+          title: 'No account required',
+          description:
+            'The app works without sign-in. We do not ask for your name, email, phone number, or location, and we do not build a profile of you.',
+        },
+        {
+          title: 'No analytics or tracking',
+          description:
+            'Jannah Builder does not embed advertising SDKs or third-party analytics, and does not track your activity across other apps or websites.',
+        },
+      ],
+      thirdParties: [
+        'Google Play — distributes the app and processes installs under its own privacy policy.',
+        'GitHub Releases — hosts the downloadable APK under GitHub’s privacy policy.',
+      ],
+      childrenNote:
+        'Jannah Builder is a family-friendly app suitable for all ages. Because it is local-first and collects no personal data, it can be used safely by children as well as adults.',
+    },
+  },
+  {
+    slug: 'task-monster',
+    name: 'Task Monster',
+    tagline: 'Chores and routines that feed a friendly monster.',
+    summary:
+      'A gamified to-do list for families. Every chore, routine or task that gets done feeds a friendly monster that grows, levels up and evolves.',
+    description:
+      'Task Monster turns chores, homework and daily routines into a game the whole family will love. Every task your child finishes becomes food for their very own monster, so brushing teeth, tidying the bedroom or finishing reading practice feels like fun rather than a fight.\n\nTick off a task and it drops into the feeder as a tasty bubble. Tap feed and watch the monster chomp it down, level up and slowly evolve. The more that gets done, the happier and healthier it becomes.\n\nRaise one of twelve lively creatures, each with its own look, voice and silly tricks, give it a name and pick its colour. There are no ads, no in-app purchases, no chat and no account, and everything stays on your device.',
+    category: 'Productivity',
+    icon: '/apps/task-monster.png',
+    featureGraphic: '/apps/task-monster-feature.png',
+    platforms: ['android'],
+    accent: '#FF6B9D',
+    downloads: [
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.taskmonsters',
+        platform: 'android',
+      },
+    ],
+    techStack: ['React Native', 'Expo SDK 57', 'TypeScript', 'Expo Router', 'React Native SVG', 'Reanimated'],
+    highlights: [
+      {
+        title: 'Finishing tasks feeds your monster',
+        description:
+          'Every completed task drops into the feeder as a tasty bubble. Feed it to your monster to level up, and watch it grow happier and healthier the more you get done.',
+      },
+      {
+        title: 'Twelve creatures that come to life',
+        description:
+          'Raise one of twelve monster species, each with its own look, voice and personality. They blink, wobble, dance, giggle, sneeze and evolve through levels as you stay consistent.',
+      },
+      {
+        title: 'Safe and private for families',
+        description:
+          'No ads, no in-app purchases, no chat, no account and no tracking of any kind. Everything works offline and stays on your device.',
+      },
+    ],
+    features: [
+      {
+        title: 'Chores kids want to do',
+        description:
+          'Completing tasks feeds and grows the monster, so ticking off chores and routines is genuinely rewarding.',
+      },
+      {
+        title: 'Twelve monster species',
+        description:
+          'Raise Blip, Cyclo, Trio, Fuzz, Finn, Nib, Boo, Hopper, Sprig, Pinch, Squidge or Prickle, and switch whenever you like.',
+      },
+      {
+        title: 'Living animations',
+        description:
+          'Monsters blink, bounce, chomp their food, do backflips and silly tricks, and each one has its own voice and sound effects.',
+      },
+      {
+        title: 'Evolving levels',
+        description:
+          'Keep feeding your monster to level it up and watch it evolve as your progress builds.',
+      },
+      {
+        title: 'Routines as colourful groups',
+        description:
+          'Set up morning, after-school and bedtime routines, or anything else, as tidy colour-coded groups.',
+      },
+      {
+        title: 'Subtasks, due dates & reminders',
+        description:
+          'Break bigger tasks down, set a due date and time, and get a gentle reminder before anything is due.',
+      },
+      {
+        title: 'Swipe to feed',
+        description:
+          'Tick or swipe a task to send it to the feeder, with a quick undo if a tap was a mistake.',
+      },
+      {
+        title: 'Health, happiness & XP',
+        description:
+          'Simple stats reflect how consistently you are getting things done.',
+      },
+      {
+        title: 'Make it yours',
+        description:
+          'Give your monster a name, choose from eight accent colours, and switch sound effects and haptics on or off.',
+      },
+      {
+        title: 'Fully offline, no account',
+        description:
+          'Everything works without sign-in and stays on your device. No ads and no in-app purchases.',
+      },
+    ],
+    screenshots: [
+      { src: '/screenshots/task-monster/1-tasks.jpg', alt: 'Task Monster task list with morning, after-school and bedtime routines' },
+      { src: '/screenshots/task-monster/2-monster.jpg', alt: 'Task Monster monster screen with feed button and stats' },
+      { src: '/screenshots/task-monster/3-feed.jpg', alt: 'Task Monster sending a finished task to the feeder' },
+      { src: '/screenshots/task-monster/4-characters.jpg', alt: 'Task Monster character picker showing twelve monster species' },
+      { src: '/screenshots/task-monster/5-new-task.jpg', alt: 'Task Monster new task form with groups, due date and reminder' },
+    ],
+    tabletPortrait: true,
+    tabletScreenshots: [
+      { src: '/screenshots/task-monster/tablet/1-tasks.jpg', alt: 'Task Monster on a tablet: morning, after-school and bedtime routines', width: 1152, height: 2048 },
+      { src: '/screenshots/task-monster/tablet/2-monster.jpg', alt: 'Task Monster on a tablet: monster screen with feed button and stats', width: 1152, height: 2048 },
+      { src: '/screenshots/task-monster/tablet/3-settings.jpg', alt: 'Task Monster on a tablet: settings screen', width: 1152, height: 2048 },
+      { src: '/screenshots/task-monster/tablet/4-new-task.jpg', alt: 'Task Monster on a tablet: new task form with groups, due date and reminder', width: 1152, height: 2048 },
+    ],
+    privacy: {
+      updated: '12 September 2026',
+      summary:
+        'Task Monster is local-first. Your tasks and your monster stay on your device and are never sent to us.',
+      collectsPersonalData: false,
+      dataHandling: [
+        {
+          title: 'Tasks & monster progress',
+          description:
+            'Your tasks, groups and your monster’s state are stored locally on your device. They are not transmitted to Binary Meadow or any third party.',
+        },
+        {
+          title: 'No account required',
+          description:
+            'The app works without sign-in. We do not ask for your name, email, phone number, or location, and we do not build a profile of you.',
+        },
+        {
+          title: 'Optional Google Drive backup',
+          description:
+            'If you choose to connect Google Drive, a backup of your tasks is stored in your own Drive account so you can sync across devices. This only happens when you connect it, and nothing is sent to us.',
+        },
+        {
+          title: 'No analytics or tracking',
+          description:
+            'Task Monster does not embed advertising SDKs or third-party analytics, and does not track your activity across other apps or websites.',
+        },
+      ],
+      thirdParties: [
+        'Google Play — distributes the app and processes installs under its own privacy policy.',
+        'Google Drive — stores your optional backup in your own account, only if you connect it, under Google’s privacy policy.',
+      ],
+      childrenNote:
+        'Task Monster is a family-friendly app suitable for all ages. Because it is local-first and collects no personal data, it can be used safely by children as well as adults.',
     },
   },
   {

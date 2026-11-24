@@ -121,3 +121,5 @@ make_app_feature("spinely", "public/apps/spinely-feature.png")
 make_app_feature("task-monster", "public/apps/task-monster-feature.png")
 make_app("gridwatch", "GridWatch", "See every AI-assisted session.",
          "public/apps/gridwatch.png", "macOS & Windows")
+make_app("opdsy-server", "OPDSy Server", "Your books, comics and audiobooks, served your way.",
+         "public/apps/opdsy.png", "Docker")

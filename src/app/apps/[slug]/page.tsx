@@ -17,6 +17,7 @@ import DownloadButtons from '@/components/DownloadButtons';
 import ComparisonTable from '@/components/ComparisonTable';
 import ServerStructures from '@/components/ServerStructures';
 import Faq from '@/components/Faq';
+import GettingStarted from '@/components/GettingStarted';
 import QrDownload from '@/components/QrDownload';
 import styles from './app.module.css';
 
@@ -390,6 +391,24 @@ export default async function AppPage({
         </section>
       )}
 
+      {app.gettingStarted && (
+        <section
+          id="get-started"
+          className={`section ${styles.anchorSection}`}
+          style={{ ['--app-accent' as string]: app.accent }}
+        >
+          <div className="container">
+            <span className="eyebrow">Install</span>
+            <h2 className="section-title">
+              <a href="#get-started" className={styles.anchorLink}>
+                Getting started
+              </a>
+            </h2>
+            <GettingStarted data={app.gettingStarted} />
+          </div>
+        </section>
+      )}
+
       {/* FAQ */}
       {app.faqs && (
         <section
@@ -436,7 +455,9 @@ export default async function AppPage({
                     : app.downloads.length > 0
                       ? 'Available for Android. Store listings are on the way — grab the latest build below.'
                       : 'Coming to Android. The Google Play listing is not live yet — there is nothing to download just yet.'
-                  : 'Available for macOS and Windows. Download the latest release below.'}
+                  : group === 'Server'
+                    ? 'Runs in Docker on a NAS, a home server or any computer, on Intel, AMD and ARM processors. Get the image below, then follow the getting started guide above.'
+                    : 'Available for macOS and Windows. Download the latest release below.'}
               </p>
               {app.pricing && (
                 <p className={styles.ctaPricing}>{app.pricing.detail}</p>

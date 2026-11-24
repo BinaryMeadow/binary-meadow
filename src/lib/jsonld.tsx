@@ -86,6 +86,7 @@ const OS_MAP: Record<string, string> = {
   ios: 'iOS',
   macos: 'macOS',
   windows: 'Windows',
+  docker: 'Linux (Docker)',
 };
 
 /**
@@ -102,6 +103,7 @@ function schemaScreenshots(screenshots: Screenshot[]) {
 
 export function softwareApplicationSchema(app: App) {
   const isMobile = app.platforms.some((p) => p === 'android' || p === 'ios');
+  const isServer = app.platforms.includes('docker');
   const playListing = app.downloads.find((d) =>
     d.href.includes('play.google.com'),
   );
@@ -131,7 +133,11 @@ export function softwareApplicationSchema(app: App) {
             (s) => `${company.url}${s.src.split('?')[0]}`,
           ),
         }
-      : {}),    applicationCategory: isMobile ? 'MobileApplication' : 'DesktopApplication',
+      : {}),    applicationCategory: isMobile
+      ? 'MobileApplication'
+      : isServer
+        ? 'UtilitiesApplication'
+        : 'DesktopApplication',
     applicationSubCategory: app.category,
     operatingSystem: app.platforms.map((p) => OS_MAP[p]).join(', '),
     featureList: app.features.map((f) => f.title),

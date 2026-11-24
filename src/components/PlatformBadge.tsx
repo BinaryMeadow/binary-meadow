@@ -1,14 +1,17 @@
 import type { Platform } from '@/data/apps';
 import styles from './PlatformBadge.module.css';
 
-const META: Record<Platform, { label: string; group: 'Mobile' | 'Desktop' }> = {
+export type PlatformGroup = 'Mobile' | 'Desktop' | 'Server';
+
+const META: Record<Platform, { label: string; group: PlatformGroup }> = {
   android: { label: 'Android', group: 'Mobile' },
   ios: { label: 'iOS', group: 'Mobile' },
   macos: { label: 'macOS', group: 'Desktop' },
   windows: { label: 'Windows', group: 'Desktop' },
+  docker: { label: 'Docker', group: 'Server' },
 };
 
-export function platformGroup(platforms: Platform[]): 'Mobile' | 'Desktop' {
+export function platformGroup(platforms: Platform[]): PlatformGroup {
   return META[platforms[0]].group;
 }
 
