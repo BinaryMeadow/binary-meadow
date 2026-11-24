@@ -489,10 +489,21 @@ export const apps: App[] = [
           cells: [
             { value: 'yes' },
             { value: 'partial', note: 'Pro version only' },
-            { value: 'unknown', note: 'Not in the project feature list' },
+            { value: 'no', note: 'Android read-aloud plugin not yet released' },
             { value: 'yes' },
             { value: 'no', note: 'Comics and manga only' },
-            { value: 'partial', note: 'Premium version only' },
+            { value: 'partial', note: 'Screen-off listening is Premium only' },
+          ],
+        },
+        {
+          feature: 'Natural, human-sounding voices built in',
+          cells: [
+            { value: 'yes', note: 'Neural voices that run offline, on Android and iOS' },
+            { value: 'no', note: 'Uses the voices of your installed speech engine' },
+            { value: 'no', note: 'No read-aloud on Android' },
+            { value: 'no', note: 'Uses the voices of your installed speech engine' },
+            { value: 'no', note: 'Comics and manga only' },
+            { value: 'no', note: 'Uses the voices of your installed speech engine' },
           ],
         },
         {
@@ -583,7 +594,7 @@ export const apps: App[] = [
         },
       ],
       note:
-        'Compiled in August 2026 and updated in October 2026 from each app’s own website, Google Play listing, documentation or public source code — column headings link to the source we used. “Unconfirmed” means we could not verify it from one of those sources; it does not mean the feature is missing. Paid tiers change what an app can do, so rows are judged on the version named in the column. These are all good apps built by people who care; if anything here is out of date, tell us and we will correct it.',
+        'Compiled in August 2026 and updated in November 2026 from each app’s own website, Google Play listing, documentation or public source code. Column headings link to the source we used. “Unconfirmed” means we could not verify it from one of those sources; it does not mean the feature is missing. Paid tiers change what an app can do, so rows are judged on the version named in the column. These are all good apps built by people who care; if anything here is out of date, tell us and we will correct it.',
     },
     serverStructures: {
       lead:
