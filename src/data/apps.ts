@@ -1077,7 +1077,7 @@ export const apps: App[] = [
       {
         title: 'Works with any OPDS app',
         description:
-          'Built to the OPDS standards rather than for one app, so it works with OPDSy, KOReader, Thorium Reader, Panels, Moon+ Reader, PocketBook and any other app that reads OPDS 1.2 or 2.0. The catalogue is checked against an automated OPDS conformance suite.',
+          'Built to the OPDS standards, so as well as OPDSy it works with any other app that reads OPDS 1.2 or 2.0. The catalogue is checked against an automated OPDS conformance suite.',
       },
       {
         title: 'Folders, managed libraries, or both',
@@ -1197,8 +1197,8 @@ volumes:
         {
           title: 'Connect a reading app',
           text: 'In the admin pages, open Users, select your user name and create an app password for each device. Copy it straight away, because it is shown only once. In your reading app, add an OPDS catalogue with your user name, the app password and one of these addresses.',
-          code: `OPDS 2.0 (OPDSy, Thorium Reader):  http://<your server address>:8080/opds/v2
-OPDS 1.2 (KOReader and older apps): http://<your server address>:8080/opds/v1.2`,
+          code: `OPDS 2.0 (OPDSy and newer apps): http://<your server address>:8080/opds/v2
+OPDS 1.2 (older apps):          http://<your server address>:8080/opds/v1.2`,
           after:
             'Settings, under Connect a reading app, shows both addresses with copy buttons.',
         },
@@ -1231,7 +1231,7 @@ docker compose up -d`,
       {
         question: 'Which reading apps can I use?',
         answer:
-          'Any app that reads OPDS 1.2 or OPDS 2.0. Use the OPDS 2.0 address with apps such as OPDSy and Thorium Reader, and the OPDS 1.2 address with apps such as KOReader, Panels, Moon+ Reader and PocketBook e-readers. Both addresses are shown on the admin page.',
+          'OPDSy, our reading app for Android, iPhone and iPad, which also syncs favourites, highlights, notes and bookmarks with the server. Any other app that reads OPDS 1.2 or OPDS 2.0 works too: use the OPDS 2.0 address with OPDSy and newer apps, and the OPDS 1.2 address with older apps. Both addresses are shown on the admin page.',
       },
       {
         question: 'Do I need the OPDSy app?',
